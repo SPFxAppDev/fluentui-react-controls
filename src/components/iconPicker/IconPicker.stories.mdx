@@ -1,0 +1,24 @@
+import { ArgTypes } from '@storybook/blocks';
+import { Meta, Story, Canvas } from '@storybook/addon-docs';
+import { IconPicker } from './';
+import { initializeIcons } from '@fluentui/react/lib/Icons';
+
+<Meta title="Components/Iconpicker" component={IconPicker} />
+
+# Iconpicker
+
+Accordion element that expands when the user clicks on the header. If the icon is present it is rotated 90deg when item is expanded.
+
+## Arguments
+
+<ArgTypes of={IconPicker} />
+
+{initializeIcons()}
+
+export const BasicTemplate = (args) => <IconPicker {...args} />;
+
+<Canvas>
+  <Story args={{}} name="Basic">
+    {BasicTemplate.bind({})}
+  </Story>
+</Canvas>

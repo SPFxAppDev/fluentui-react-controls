@@ -1,0 +1,41 @@
+@import '../../scss/common.scss';
+
+.loading {
+  color: #000;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  border-radius: 0;
+  max-width: 100vw;
+  max-height: 100vh;
+  z-index: 9998;
+  box-sizing: border-box;
+
+  &--overlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    opacity: 0.5;
+    z-index: -1;
+    background-color: #000;
+    transition: background-color 0.28s;
+  }
+}
+
+:global {
+  .loading-spinner {
+    &,
+    & .ms-Spinner-label {
+      color: #fff;
+    }
+
+    &--customsize .ms-Spinner-circle {
+      width: 48px;
+      height: 48px;
+    }
+  }
+}

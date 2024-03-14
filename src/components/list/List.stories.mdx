@@ -1,0 +1,26 @@
+import { ArgTypes } from '@storybook/blocks';
+import { Meta, Story, Canvas } from '@storybook/addon-docs';
+import { List, ListItem } from './';
+
+<Meta title="Components/List & List Items" component={List} />
+
+# List & List Items
+
+Accordion element that expands when the user clicks on the header. If the icon is present it is rotated 90deg when item is expanded.
+
+## Arguments
+
+<ArgTypes of={List} />
+
+export const BasicTemplate = (args) => (
+  <List {...args}>
+    <ListItem clickable={true}>abc</ListItem>
+    <ListItem>def</ListItem>
+  </List>
+);
+
+<Canvas>
+  <Story args={{ bordered: true, separator: true }} name="Basic">
+    {BasicTemplate.bind({})}
+  </Story>
+</Canvas>

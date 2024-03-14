@@ -1,0 +1,30 @@
+import { ArgTypes } from '@storybook/blocks';
+import { Meta, Story, Canvas } from '@storybook/addon-docs';
+import { SearchableDropDown } from './';
+import { DefaultButton, PrimaryButton } from '@fluentui/react';
+
+<Meta title="Components/Searchable Dropdown" component={SearchableDropDown} />
+
+# SearchableDropDown
+
+Accordion element that expands when the user clicks on the header. If the icon is present it is rotated 90deg when item is expanded.
+
+## Arguments
+
+<ArgTypes of={SearchableDropDown} />
+
+export const BasicTemplate = (args) => <SearchableDropDown {...args} />;
+
+<Canvas>
+  <Story
+    args={{
+      onSearchValueChanged: (val) => {
+        console.log('SEARCH VALUE', val);
+      },
+      options: [{ key: 'test', text: 'test' }],
+    }}
+    name="Basic"
+  >
+    {BasicTemplate.bind({})}
+  </Story>
+</Canvas>

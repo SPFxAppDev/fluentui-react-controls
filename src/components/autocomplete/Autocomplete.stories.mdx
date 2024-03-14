@@ -1,0 +1,65 @@
+import { useState } from 'react';
+import { ArgTypes } from '@storybook/blocks';
+import { Meta, Story, Canvas } from '@storybook/addon-docs';
+import { Autocomplete } from './';
+import { List, ListItem } from '../list';
+import { initializeIcons } from '@fluentui/react/lib/Icons';
+
+<Meta title="Components/Autocomplete" component={Autocomplete} />
+
+# Autocomplete
+
+Accordion element that expands when the user clicks on the header. If the icon is present it is rotated 90deg when item is expanded.
+
+## Arguments
+
+<ArgTypes of={Autocomplete} />
+
+<Canvas>
+  <Story
+    args={{
+      label: 'Find a product',
+      placeholder: 'Search for Products i. e. Laptop, iPhone etc. (using dummyjson.com API)',
+    }}
+    name="Basic"
+  >
+    {(args) => {
+      const [value, setValue] = useState('');
+      const [products, setProducts] = useState([]);
+      return (
+        <Autocomplete
+          {...args}
+          value={value}
+          onChange={(ev, newVal) => {
+            setValue(newVal);
+          }}
+          onLoadSuggestions={async (newValue) => {
+            setValue(newValue);
+            const response = await fetch(`https://dummyjson.com/products/search?q=${newValue}`);
+            const foundProducts = await response.json();
+            setProducts(foundProducts.products)
+          }}
+          onRenderSuggestions={() => {
+            return <List separator={true}>
+            {products
+                    .map((product) => {
+                        return (
+                            <ListItem
+                                clickable={true}
+                                key={`product_${product.id}`}
+                                onClick={() => {
+                                    setValue(product.title);
+                                }}
+                            >
+                            {product.title}
+                            </ListItem>
+                        );
+                    })}
+            </List>;
+          }}
+        />
+      );
+    }}
+
+  </Story>
+</Canvas>

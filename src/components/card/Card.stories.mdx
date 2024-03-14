@@ -1,0 +1,125 @@
+import { ArgTypes } from '@storybook/blocks';
+import { Meta, Story, Canvas } from '@storybook/addon-docs';
+import { Card, CardSection, CardAction, CardImage, CardImageContent } from './';
+import { DefaultButton, PrimaryButton } from '@fluentui/react';
+
+<Meta title="Components/Card" component={Card} />
+
+# Card
+
+Accordion element that expands when the user clicks on the header. If the icon is present it is rotated 90deg when item is expanded.
+
+## Arguments
+
+<ArgTypes of={Card} />
+
+export const loremText = `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.`;
+
+export const BasicTemplate = (args) => (
+  <Card style={{width: "400px"}}>
+    <CardSection>
+      <h4>Card title</h4>
+      <h5>Subtitle</h5>
+    </CardSection>
+    <hr />
+
+    <CardSection>{loremText}</CardSection>
+
+  </Card>
+);
+
+export const WithActionTemplate = (args) => (
+  <Card style={{width: "400px"}}>
+    <CardSection>
+      <h4>Card title</h4>
+      <h5>Subtitle</h5>
+    </CardSection>
+    <hr />
+
+    <CardSection>{loremText}</CardSection>
+
+    <CardAction {...args}>
+      <PrimaryButton>Action 1</PrimaryButton>
+      <DefaultButton>Action 2</DefaultButton>
+    </CardAction>
+
+  </Card>
+);
+
+export const WithImageTemplate = (args) => (
+  <Card style={{width: "400px"}}>
+    <CardImage {...args}>
+      <CardImageContent showOnBottom>Text</CardImageContent>
+    </CardImage>
+
+    <CardSection>{loremText}</CardSection>
+
+    <hr />
+
+    <CardAction>
+      <PrimaryButton>Action</PrimaryButton>
+      <DefaultButton>Action 2</DefaultButton>
+    </CardAction>
+
+  </Card>
+);
+
+export const WithImageAndContentTemplate = (args) => (
+  <Card style={{width: "400px"}}>
+    <CardImage imageSrc="https://picsum.photos/450/300">
+      <CardImageContent {...args}>Text</CardImageContent>
+    </CardImage>
+
+    <CardSection>{loremText}</CardSection>
+
+    <hr />
+
+    <CardAction>
+      <PrimaryButton>Action</PrimaryButton>
+      <DefaultButton>Action 2</DefaultButton>
+    </CardAction>
+
+  </Card>
+);
+
+## Basic
+
+<Canvas>
+  <Story name="Basic">{BasicTemplate.bind({})}</Story>
+</Canvas>
+
+## Card with actions
+
+### CardAction Arguments
+
+<ArgTypes of={CardAction} />
+
+<Canvas>
+  <Story name="Actions" args={{ vertical: false }}>
+    {WithActionTemplate.bind({})}
+  </Story>
+</Canvas>
+
+## Card with image
+
+### CardImage Arguments
+
+<ArgTypes of={CardImage} />
+
+<Canvas>
+  <Story name="Image" args={{ imageSrc: 'https://picsum.photos/450/300' }}>
+    {WithImageTemplate.bind({})}
+  </Story>
+</Canvas>
+
+## Card with image and image content
+
+### CardImage Arguments
+
+<ArgTypes of={CardImageContent} />
+
+<Canvas>
+  <Story name="Image with content" args={{ showOnBottom: false, textCenter: false }}>
+    {WithImageAndContentTemplate.bind({})}
+  </Story>
+</Canvas>

@@ -1,0 +1,335 @@
+@function getSharePointColor($color, $fallback) {
+  @if variable-exists($color) {
+    @return $color;
+  } @else {
+    @return $fallback;
+  }
+}
+
+$spThemePrimary: '[theme: themePrimary, default: #0078d7]';
+$spThemeSecondary: '[theme: themeSecondary, default: #2b88d8]';
+$spThemeTertiary: '[theme: themeTertiary, default: #d83b01]';
+$spThemeDarkAlt: '[theme: themeDarkAlt, default: #005a9e]';
+$spThemeDark: '[theme: themeDark, default: #004578]';
+$spThemeDarker: '[theme: themeDarker, default: #003366]';
+$spNeutralLighterAlt: '[theme: neutralLighterAlt, default: #f8f8f8]';
+$spNeutralLighter: '[theme: neutralLighter, default: #f4f4f4]';
+$spNeutralLight: '[theme: neutralLight, default: #eaeaea]';
+$spNeutralQuaternaryAlt: '[theme: neutralQuaternaryAlt, default: #d0d0d0]';
+$spNeutralQuaternary: '[theme: neutralQuaternary, default: #c8c8c8]';
+$spNeutralTertiaryAlt: '[theme: neutralTertiaryAlt, default: #b6b6b6]';
+$spNeutralTertiary: '[theme: neutralTertiary, default: #a6a6a6]';
+$spNeutralSecondary: '[theme: neutralSecondary, default: #666666]';
+$spNeutralPrimaryAlt: '[theme: neutralPrimaryAlt, default: #333333]';
+$spNeutralPrimary: '[theme: neutralPrimary, default: #000000]';
+$spNeutralDark: '[theme: neutralDark, default: #151515]';
+$spBlack: '[theme: black, default: #000000]';
+$spWhite: '[theme: white, default: #ffffff]';
+
+$themePrimary: getSharePointColor($spThemePrimary, #0078d7);
+$themeSecondary: getSharePointColor($spThemeSecondary, #2b88d8);
+$themeTertiary: getSharePointColor($spThemeTertiary, #d83b01);
+$themeDarkAlt: getSharePointColor($spThemeDarkAlt, #005a9e);
+$themeDark: getSharePointColor($spThemeDark, #004578);
+$themeDarker: getSharePointColor($spThemeDarker, #003366);
+$neutralLighterAlt: getSharePointColor($spNeutralLighterAlt, #f8f8f8);
+$neutralLighter: getSharePointColor($spNeutralLighter, #f4f4f4);
+$neutralLight: getSharePointColor($spNeutralLight, #eaeaea);
+$neutralQuaternaryAlt: getSharePointColor($spNeutralQuaternaryAlt, #d0d0d0);
+$neutralQuaternary: getSharePointColor($spNeutralQuaternary, #c8c8c8);
+$neutralTertiaryAlt: getSharePointColor($spNeutralTertiaryAlt, #b6b6b6);
+$neutralTertiary: getSharePointColor($spNeutralTertiary, #a6a6a6);
+$neutralSecondary: getSharePointColor($spNeutralSecondary, #666666);
+$neutralPrimaryAlt: getSharePointColor($spNeutralPrimaryAlt, #333333);
+$neutralPrimary: getSharePointColor($spNeutralPrimary, #000000);
+$neutralDark: getSharePointColor($spNeutralDark, #151515);
+$black: getSharePointColor($spBlack, #000000);
+$white: getSharePointColor($spWhite, #ffffff);
+
+:global {
+  .flex-row,
+  .flex-column,
+  .flex {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .flex-row {
+    flex-direction: row;
+  }
+
+  .flex-column {
+    flex-direction: column;
+  }
+
+  .no-wrap {
+    flex-wrap: nowrap;
+  }
+
+  .justify {
+    &-start {
+      justify-content: flex-start;
+    }
+
+    &-end {
+      justify-content: flex-end;
+    }
+
+    &-center {
+      justify-content: center;
+    }
+
+    &-between {
+      justify-content: space-between;
+    }
+
+    &-around {
+      justify-content: space-around;
+    }
+    &-evenly {
+      justify-content: space-evenly;
+    }
+  }
+
+  .items {
+    &-start {
+      align-items: flex-start;
+    }
+    &-end {
+      align-items: flex-end;
+    }
+    &-center {
+      align-items: center;
+    }
+    &-baseline {
+      align-items: baseline;
+    }
+
+    &-stretch {
+      align-items: stretch;
+    }
+  }
+
+  .self {
+    &-start {
+      align-self: flex-start;
+    }
+
+    &-end {
+      align-self: flex-end;
+    }
+
+    &-center {
+      align-self: center;
+    }
+
+    &-baseline {
+      align-self: baseline;
+    }
+
+    &-stretch {
+      align-self: stretch;
+    }
+  }
+
+  .float-left {
+    float: left;
+  }
+
+  .float-right {
+    float: right;
+  }
+
+  .relative {
+    &-position {
+      position: relative;
+    }
+  }
+
+  .absolute {
+    &-position {
+      position: absolute;
+    }
+
+    &-top {
+      top: 0;
+      left: 0;
+      right: 0;
+      position: absolute;
+    }
+
+    &-bottom {
+      bottom: 0;
+      left: 0;
+      right: 0;
+      position: absolute;
+    }
+  }
+
+  .fixed {
+    &-position {
+      position: fixed;
+    }
+  }
+
+  .full-width {
+    width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+
+  .fontsize {
+    &-xxs {
+      font-size: 9px;
+    }
+
+    &-xs {
+      font-size: 10px;
+    }
+
+    &-s {
+      font-size: 14px;
+    }
+
+    &-m {
+      font-size: 16px;
+    }
+
+    &-l {
+      font-size: 18px;
+    }
+
+    &-xl {
+      font-size: 21px;
+    }
+
+    &-xxl {
+      font-size: 32px;
+    }
+
+    &-xxxl {
+      font-size: 48px;
+    }
+  }
+
+  .text {
+    &-left {
+      text-align: left;
+    }
+
+    &-right {
+      text-align: right;
+    }
+
+    &-center {
+      text-align: center;
+    }
+  }
+
+  .block {
+    display: block !important;
+  }
+
+  .inline-block {
+    display: inline-block !important;
+  }
+
+  .no-margin {
+    margin: 0 !important;
+  }
+
+  .no-padding {
+    padding: 0 !important;
+  }
+
+  .no-border {
+    border: 0 !important;
+  }
+
+  .no-border-radius {
+    border-radius: 0 !important;
+  }
+
+  .no-box-shadow {
+    box-shadow: none !important;
+  }
+
+  .no-outline {
+    outline: 0 !important;
+  }
+
+  .ellipsis {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+
+    &-2-lines,
+    &-3-lines {
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+    }
+
+    &-2-lines {
+      -webkit-line-clamp: 2;
+    }
+
+    &-3-lines {
+      -webkit-line-clamp: 3;
+    }
+  }
+
+  .hide-scrollbar {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+
+    &::-webkit-scrollbar {
+      width: 0;
+      height: 0;
+      display: none;
+    }
+  }
+
+  .readonly {
+    cursor: default !important;
+  }
+
+  .disabled {
+    &,
+    & label {
+      outline: 0 !important;
+      cursor: not-allowed !important;
+    }
+  }
+
+  .hidden {
+    display: none !important;
+  }
+
+  .invisible {
+    &,
+    & * {
+      visibility: hidden !important;
+      transition: none !important;
+      animation: none !important;
+    }
+  }
+
+  .transparent {
+    background: transparent !important;
+  }
+
+  .overflow {
+    &-auto {
+      overflow: auto !important;
+    }
+
+    &-hidden {
+      overflow: hidden !important;
+
+      &-y {
+        overflow-y: hidden !important;
+      }
+    }
+  }
+}

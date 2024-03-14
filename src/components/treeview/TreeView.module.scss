@@ -1,0 +1,77 @@
+@import '../../scss/common.scss';
+
+.treeview {
+  &-container {
+    display: block;
+  }
+
+  &-list {
+    display: block;
+    margin: 0;
+    padding: 0;
+
+    $list: &;
+
+    &-item {
+      display: block;
+      padding: 0;
+      margin: 5px 5px 0;
+
+      &--container {
+        display: flex;
+        padding: 5px 0 0;
+
+        & > div:first-of-type {
+          vertical-align: middle;
+          margin: 0;
+          width: 20px;
+          height: 20px;
+
+          button {
+            width: 20px;
+            cursor: pointer;
+            height: 20px;
+            padding: 0;
+          }
+        }
+
+        & > div:last-of-type {
+          cursor: pointer;
+
+          i {
+            line-height: 20px;
+            vertical-align: text-top;
+            padding: 0 5px;
+          }
+        }
+      }
+
+      &--selected {
+        & > #{$list}-item--container {
+          border-style: solid;
+          border-color: $themePrimary;
+          border-width: 1px 0;
+          font-weight: 700;
+
+          button {
+            color: $themePrimary;
+          }
+        }
+      }
+
+      button {
+        i {
+          font-size: 10px;
+        }
+      }
+
+      &--expanded {
+        display: block;
+      }
+
+      #{$list} {
+        padding-left: 10px;
+      }
+    }
+  }
+}

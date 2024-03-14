@@ -1,0 +1,23 @@
+import { ArgTypes } from '@storybook/blocks';
+import { Meta, Story, Canvas } from '@storybook/addon-docs';
+import { Badge } from './';
+
+<Meta title="Components/Badge" component={Badge} />
+
+# Badge
+
+Accordion element that expands when the user clicks on the header. If the icon is present it is rotated 90deg when item is expanded.
+
+## Arguments
+
+<ArgTypes of={Badge} />
+
+export const BasicTemplate = (args) => (
+  <div>
+    Version <Badge {...args}>1.0.0</Badge>
+  </div>
+);
+
+<Canvas>
+  <Story name="Basic">{BasicTemplate.bind({})}</Story>
+</Canvas>

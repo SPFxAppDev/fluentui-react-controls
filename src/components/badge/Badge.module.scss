@@ -1,0 +1,13 @@
+@import '../../scss/common.scss';
+
+.badge {
+  background-color: $themePrimary;
+  display: inline-flex;
+  color: $white;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 12px;
+  line-height: 12px;
+  min-height: 12px;
+  font-weight: 400;
+}

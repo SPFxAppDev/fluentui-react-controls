@@ -1,0 +1,174 @@
+import { useState } from 'react';
+import { ArgTypes } from '@storybook/blocks';
+import { Meta, Story, Canvas } from '@storybook/addon-docs';
+import { AlertDialog, ConfirmDialog, PromptDialog } from './';
+import { PrimaryButton } from '@fluentui/react';
+
+<Meta title="Components/Dialog" />
+
+# Alert
+
+Accordion element that expands when the user clicks on the header. If the icon is present it is rotated 90deg when item is expanded.
+
+## Arguments
+
+<ArgTypes of={AlertDialog} />
+
+<Canvas>
+  <Story name="Alert"
+  args={{
+    title: "Alert Title",
+    content: "This is an alert!",
+    buttonText: "OK"
+  }}
+  >
+  {(args) => {
+      const [showDialog, setShowDialog] = useState(false);
+      return (
+        <div>
+        <PrimaryButton
+        onClick={() => {
+            setShowDialog(true);
+        }}
+        >Show Alert</PrimaryButton>
+        <AlertDialog {...args} hidden={!showDialog} onDismiss={() => {
+            setShowDialog(false);
+        }} />
+        </div>
+      );
+
+}}
+
+  </Story>
+</Canvas>
+
+# Confirm
+
+Accordion element that expands when the user clicks on the header. If the icon is present it is rotated 90deg when item is expanded.
+
+## Arguments
+
+<ArgTypes of={ConfirmDialog} />
+
+<Canvas>
+  <Story name="Confirm"
+  args={{
+    title: "Confirm Title",
+    content: "Are you sure?",
+    confirmButtonText: "YES",
+    cancelButtonText: "NO"
+  }}
+  >
+  {(args) => {
+      const [showDialog, setShowDialog] = useState(false);
+      return (
+        <div>
+        <PrimaryButton
+        onClick={() => {
+            setShowDialog(true);
+        }}
+        >Show Confirm</PrimaryButton>
+        <ConfirmDialog {...args} 
+        hidden={!showDialog} 
+        onConfirmed={() => {
+            setShowDialog(false);
+        }} 
+        onCanceled={() => {
+            setShowDialog(false);
+        }} />
+        </div>
+      );
+
+}}
+
+  </Story>
+</Canvas>
+
+# Prompt
+
+Accordion element that expands when the user clicks on the header. If the icon is present it is rotated 90deg when item is expanded.
+
+## Arguments
+
+<ArgTypes of={PromptDialog} />
+
+<Canvas>
+  <Story name="Basic Prompt"
+  args={{
+    title: "Prompt Title",
+    content: "What's your name?",
+    confirmButtonText: "OK",
+    cancelButtonText: "Cancel"
+  }}
+  >
+  {(args) => {
+      const [showDialog, setShowDialog] = useState(false);
+      return (
+        <div>
+        <PrimaryButton
+        onClick={() => {
+            setShowDialog(true);
+        }}
+        >Show Prompt</PrimaryButton>
+        <PromptDialog {...args} 
+        hidden={!showDialog} 
+        onConfirmed={() => {
+            setShowDialog(false);
+        }} 
+        onCanceled={() => {
+            setShowDialog(false);
+        }} />
+        </div>
+      );
+
+}}
+
+  </Story>
+</Canvas>
+
+<Canvas>
+  <Story name="Prompt with validation"
+  args={{
+    title: "Prompt Title",
+    content: "What's your name? (Minimum 3 characters)",
+    confirmButtonText: "OK",
+    cancelButtonText: "Cancel",
+    hideCancelButton: true
+  }}
+  >
+  {(args) => {
+      const [showDialog, setShowDialog] = useState(false);
+      const [disableBtn, setDisableButton] = useState(true);
+      return (
+        <div>
+        <PrimaryButton
+        onClick={() => {
+            setShowDialog(true);
+        }}
+        >Show Prompt</PrimaryButton>
+        <PromptDialog {...args}
+        confirmButtonDisabled={disableBtn}
+        textFieldProps={
+          {
+            required: true,
+            label: "Name",
+            onChange: (ev, newValue) => {
+              setDisableButton((newValue && newValue.trim().length < 3));
+            }
+          }
+        }
+        hidden={!showDialog}
+        onConfirmed={(val) => {
+          console.log("Entered Value is", val);
+            setShowDialog(false);
+        }}
+        onCanceled={() => {
+            setShowDialog(false);
+        }} />
+        </div>
+      );
+
+}}
+
+  </Story>
+</Canvas>

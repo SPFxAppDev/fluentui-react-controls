@@ -1,0 +1,125 @@
+@import '../../scss/common.scss';
+
+.card {
+  border-radius: 4px;
+  vertical-align: top;
+  background: #fff;
+  position: relative;
+  box-shadow: 0 1px 5px #0003, 0 2px 2px #00000024, 0 3px 1px -2px #0000001f;
+  color: #000;
+
+  & > img {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    border: 0;
+  }
+
+  img {
+    border-style: none;
+  }
+
+  & > div {
+    border-left: 0;
+    border-right: 0;
+    box-shadow: none;
+  }
+
+  & > div:first-child,
+  & > img:first-child {
+    border-top: 0;
+    border-top-left-radius: inherit;
+    border-top-right-radius: inherit;
+  }
+
+  & > div:last-child,
+  & > img:last-child {
+    border-bottom: 0;
+    border-bottom-left-radius: inherit;
+    border-bottom-right-radius: inherit;
+  }
+
+  & > div:not(:first-child),
+  & > img:not(:first-child) {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+  }
+
+  hr {
+    border: 0;
+    background: rgba(0, 0, 0, 0.12);
+    margin: 0;
+    transition: background 0.3s, opacity 0.3s;
+    flex-shrink: 0;
+    box-sizing: content-box;
+    overflow: visible;
+    display: block;
+    height: 1px;
+    unicode-bidi: isolate;
+    margin-block-start: 0.5em;
+    margin-block-end: 0.5em;
+    margin-inline-start: auto;
+    margin-inline-end: auto;
+  }
+
+  &--img {
+    position: relative;
+    width: 100%;
+    display: inline-block;
+    vertical-align: middle;
+    overflow: hidden;
+
+    &-container {
+      border-radius: inherit;
+      font-size: 0;
+    }
+
+    &-content {
+      border-radius: inherit;
+      pointer-events: none;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      left: 0;
+
+      & > div {
+        pointer-events: all;
+        position: absolute;
+        padding: 16px;
+        color: #fff;
+        background: rgba(0, 0, 0, 0.47);
+      }
+    }
+  }
+
+  &--section {
+    position: relative;
+    padding: 16px;
+  }
+
+  &--actions {
+    display: flex;
+    padding: 8px;
+    align-items: center;
+    flex-wrap: wrap;
+
+    button {
+      margin: 0 8px;
+
+      display: inline-flex;
+      flex-direction: column;
+      align-items: stretch;
+      position: relative;
+    }
+
+    &-vertical {
+      flex-direction: column;
+      align-items: stretch;
+
+      button {
+        margin: 8px 0;
+      }
+    }
+  }
+}

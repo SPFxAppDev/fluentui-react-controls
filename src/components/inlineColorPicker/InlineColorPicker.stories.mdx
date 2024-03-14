@@ -1,0 +1,22 @@
+import { ArgTypes } from '@storybook/blocks';
+import { Meta, Story, Canvas } from '@storybook/addon-docs';
+import { InlineColorPicker } from './';
+import { DefaultButton, PrimaryButton } from '@fluentui/react';
+
+<Meta title="Components/Inline color picker" component={InlineColorPicker} />
+
+# Inline color picker
+
+Accordion element that expands when the user clicks on the header. If the icon is present it is rotated 90deg when item is expanded.
+
+## Arguments
+
+<ArgTypes of={InlineColorPicker} />
+
+export const BasicTemplate = (args) => <InlineColorPicker {...args} />;
+
+<Canvas>
+  <Story args={{ color: '#000000' }} name="Basic">
+    {BasicTemplate.bind({})}
+  </Story>
+</Canvas>
