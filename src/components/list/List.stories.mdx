@@ -4,13 +4,20 @@ import { List, ListItem } from './';
 
 <Meta title="Components/List & List Items" component={List} />
 
-# List & List Items
+# List and List Items
 
-Accordion element that expands when the user clicks on the header. If the icon is present it is rotated 90deg when item is expanded.
+The `List` and `ListItem` components were developed to display multiple lines in a vertical layout that merge seamlessly into a single continuous element. 
+They are ideal for displaying homogeneous data types in the form of rows of information, such as a contact list, a playlist or a menu. 
+Each line, referred to as a `ListItem`, contains specific details or content relevant to the context of the list. 
+In addition, the `ListItem` component retains its usefulness outside the boundaries of a list and offers flexibility for use in different components and interfaces.
+
+
 
 ## Arguments
 
 <ArgTypes of={List} />
+
+## Examples
 
 export const BasicTemplate = (args) => (
   <List {...args}>

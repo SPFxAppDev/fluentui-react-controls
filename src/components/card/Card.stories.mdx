@@ -7,11 +7,37 @@ import { DefaultButton, PrimaryButton } from '@fluentui/react';
 
 # Card
 
-Accordion element that expands when the user clicks on the header. If the icon is present it is rotated 90deg when item is expanded.
+The Card component is a fundamental UI element designed to efficiently display grouped content in a visually appealing manner. 
+This design pattern has rapidly gained popularity as a core element in various applications, including apps, website previews, and email content. 
+The primary purpose of the Card is to organize and contain information while providing a structured layout that fosters predictability and ease of consumption.
 
-## Arguments
+As digital interfaces strive to accommodate an increasing amount of content within limited screen real estate, Cards have emerged as a preferred design pattern for many prominent companies, such as Microsoft, Google and Twitter. 
+This trend underscores the effectiveness and versatility of Cards in managing and presenting diverse types of content.
 
-<ArgTypes of={Card} />
+The Card component is intentionally lightweight, serving primarily as a container capable of hosting other components as needed. 
+Its flexibility allows for seamless integration with various content types, making it suitable for a wide range of applications and use cases.
+
+{/* ## Arguments
+
+<ArgTypes of={Card} /> */}
+
+> The card component is basically just a container and has no custom properties (it only inherits the properties from a DIV-Element). Theoretically, all HTML elements are possible as child elements, but I recommend using the components: `CardSection`, `CardImage`, `CardImageContent`, and `CardAction`
+
+## Usage
+
+The Card Component is suitable for numerous scenarios where content organization and presentation are paramount. Some common use cases include:
+
+- **Content Grouping**: Use Cards to group related content together, providing context and structure to information displayed on the interface.
+
+- **Preview Thumbnails**: Display previews of articles, products, or multimedia content within Cards to give users a glimpse of what to expect before delving deeper.
+
+- **Dashboard Widgets**: Employ Cards to represent individual widgets or modules within a dashboard layout, enabling users to interact with different functionalities seamlessly.
+
+- **Profile Cards**: Showcase user profiles or contacts within Cards, including relevant information such as avatars, names, and brief descriptions.
+
+- **Product Listings**: Present product details, including images, descriptions, and pricing, in a visually appealing manner using Cards within e-commerce platforms.
+
+In essence, the Card Component serves as a versatile building block for organizing and presenting content effectively within modern web applications, offering a balance between visual appeal and functional clarity.
 
 export const loremText = `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.`;
 

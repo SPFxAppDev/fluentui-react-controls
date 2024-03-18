@@ -7,7 +7,9 @@ import { initializeIcons } from '@fluentui/react/lib/Icons';
 
 # Iconpicker
 
-Accordion element that expands when the user clicks on the header. If the icon is present it is rotated 90deg when item is expanded.
+The IconPicker component is a UI element designed to facilitate the selection of icons from the "Fluent UI Icons" set. 
+It allows users to conveniently select icons and provides a visual representation of the available options. 
+This component enhances the user experience by providing a seamless way to incorporate icons into applications, websites or other digital interfaces.
 
 ## Arguments
 
@@ -17,8 +19,10 @@ Accordion element that expands when the user clicks on the header. If the icon i
 
 export const BasicTemplate = (args) => <IconPicker {...args} />;
 
+## Examples
+
 <Canvas>
-  <Story args={{}} name="Basic">
+  <Story args={{ label: "Pick an icon"}} name="Basic">
     {BasicTemplate.bind({})}
   </Story>
 </Canvas>

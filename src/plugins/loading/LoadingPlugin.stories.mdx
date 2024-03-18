@@ -4,19 +4,20 @@ import { Meta, Story, Canvas } from '@storybook/addon-docs';
 import { Loading } from './';
 import { PrimaryButton } from '@fluentui/react';
 
-<Meta title="Components/Loading" component={Loading} />
+<Meta title="Plugins/Loading" component={Loading} />
 
-# Loading
+# Loading Plugin
 
-The `Loading` component is used as a tool to display an overlay with a spinner over the content of your application to signal to users that a background task is being performed.
+The `Laoding Plugin` is a utility that simplifies the process of opening a loading screen within React applications without the need for complex state management. 
+With just a single line of code, developers can use this plugin to open loading screens.
 
-> Note: There is also a "plugin" for a loading component to avoid having to render the component using state handling, for example. You can find out more about this here: [Loading Plugin](?path=/docs/plugins-loading--docs)
+{/* ## Arguments
 
-## Arguments
-
-<ArgTypes of={Loading} />
+<ArgTypes of={Loading} /> */}
 
 ## Examples
+
+
 
 export const BasicTemplate = (args) => <div></div>;
 
@@ -25,20 +26,19 @@ export const BasicTemplate = (args) => <div></div>;
 <Canvas>
   <Story name="Basic">
   {(args) => {
-      const [showLoading, setShowLoading] = useState(false);
+      
       return (
         <div>
         <PrimaryButton
         onClick={() => {
-            setShowLoading(true);
+            Loading.show();
 
             var timer = setTimeout(() => {
-            setShowLoading(false);
-            timer = void 0
+                Loading.hide();
+                timer = void 0
             }, 3000);
         }}
         >Show Loading</PrimaryButton>
-        <Loading hidden={!showLoading} />
         </div>
       );
 
@@ -47,30 +47,31 @@ export const BasicTemplate = (args) => <div></div>;
   </Story>
 </Canvas>
 
-
 ### With Spinner properties
 
 <Canvas>
   <Story name="With Spinner properties"
-  args={{
-    size: 1,
-    label: "Please wait..."
-  }}>
+  args={
+    {
+        spinnerProps: {
+            size: 1,
+            label: "Please wait..."
+        }
+    }}>
   {(args) => {
       const [showLoading, setShowLoading] = useState(false);
       return (
         <div>
         <PrimaryButton
         onClick={() => {
-            setShowLoading(true);
+            Loading.show(args);
 
             var timer = setTimeout(() => {
-            setShowLoading(false);
+                Loading.hide();
             timer = void 0
             }, 3000);
         }}
         >Show Loading</PrimaryButton>
-        <Loading hidden={!showLoading} spinnerProps={args} />
         </div>
       );
 

@@ -1,0 +1,152 @@
+import { ArgTypes } from '@storybook/blocks';
+import { Meta, Story, Canvas } from '@storybook/addon-docs';
+import { AlertDialog, ConfirmDialog, PromptDialog } from './';
+import { PrimaryButton } from '@fluentui/react';
+
+<Meta title="Plugins/Dialog" />
+
+# Dialog Plugins
+
+The `Dialog Plugins` are a set of utilities designed to simplify the process of opening Alert, Confirm, or Prompt dialogs within react applications without the need for complex state management. 
+With just a single line of code, these plugins enable developers to open dialogs.
+
+## Alert
+
+{/* ### Arguments
+
+<ArgTypes of={AlertDialog} /> */}
+
+### Examples
+
+<Canvas>
+  <Story name="Alert"
+  args={{
+    title: "Alert Title",
+    content: "This is an alert!",
+    buttonText: "OK"
+  }}
+  >
+  {(args) => {
+      return (
+        <div>
+        <PrimaryButton
+        onClick={() => {
+            AlertDialog.open(args);
+        }}
+        >Show Alert</PrimaryButton>
+        </div>
+      );
+
+}}
+
+  </Story>
+</Canvas>
+
+## Confirm
+
+{/* ### Arguments
+
+<ArgTypes of={AlertDialog} /> */}
+
+### Examples
+
+<Canvas>
+  <Story name="Confirm"
+  args={{
+    title: "Confirm Title",
+    content: "Are you sure?",
+    confirmButtonText: "YES",
+    cancelButtonText: "NO"
+  }}
+  >
+  {(args) => {
+      return (
+        <div>
+        <PrimaryButton
+        onClick={() => {
+            ConfirmDialog.open(args);
+        }}
+        >Show Confirm</PrimaryButton>
+        </div>
+      );
+
+}}
+
+  </Story>
+</Canvas>
+
+## Prompt
+
+{/* ### Arguments
+
+<ArgTypes of={PromptDialog} /> */}
+
+### Examples
+
+#### Basic
+
+<Canvas>
+  <Story name="Basic Prompt"
+  args={{
+    title: "Prompt Title",
+    content: "What's your name?",
+    confirmButtonText: "OK",
+    cancelButtonText: "Cancel"
+  }}
+  >
+  {(args) => {
+      return (
+        <div>
+        <PrimaryButton
+        onClick={() => {
+            PromptDialog.open(args);
+        }}
+        >Show Prompt</PrimaryButton>
+        </div>
+      );
+
+}}
+
+  </Story>
+</Canvas>
+
+#### Prompt with validation
+
+<Canvas>
+  <Story name="Prompt with validation"
+  args={{
+     title: "Prompt Title",
+    content: "What's your name? (Minimum 3 characters)",
+    confirmButtonText: "OK",
+    cancelButtonText: "Cancel",
+    hideCancelButton: true
+  }}
+  >
+  {(args) => {
+      return (
+        <div>
+        <PrimaryButton
+        onClick={() => {
+            PromptDialog.open({...args, ...{
+                confirmButtonDisabled: (newValue) => {
+                    return !newValue || (newValue && newValue.trim().length < 3);
+                },
+                textFieldProps: {
+                    required: true,
+                    label: "Name",
+                    onChange: (ev, newValue) => {
+                        console.log("SSC", ev);
+                    }
+                }
+            }});
+        }}
+        >Show Prompt</PrimaryButton>
+        </div>
+      );
+
+}}
+
+  </Story>
+</Canvas>
+
+

@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { ArgTypes } from '@storybook/blocks';
 import { Meta, Story, Canvas } from '@storybook/addon-docs';
 import { InlineColorPicker } from './';
@@ -7,16 +8,20 @@ import { DefaultButton, PrimaryButton } from '@fluentui/react';
 
 # Inline color picker
 
-Accordion element that expands when the user clicks on the header. If the icon is present it is rotated 90deg when item is expanded.
+The `InlineColorPicker` Component is a user interface element that allows users to select colors directly within a container (=inline). 
+It displays a container with the background color representing the selected color. Upon clicking on this container, a color picker opens in a callout, enabling users to choose their desired color.
 
 ## Arguments
 
 <ArgTypes of={InlineColorPicker} />
 
-export const BasicTemplate = (args) => <InlineColorPicker {...args} />;
-
 <Canvas>
-  <Story args={{ color: '#000000' }} name="Basic">
-    {BasicTemplate.bind({})}
+  <Story args={{ color: '#000000', label: "Select a color" }} name="Basic">
+  {(args) => {
+      const [currentColor, setCurrentColor] = useState(args.color);    
+      return(
+      <InlineColorPicker {...args} color={currentColor} onChange={(ev, color) => { setCurrentColor(color); }} />
+    );
+  }}
   </Story>
 </Canvas>

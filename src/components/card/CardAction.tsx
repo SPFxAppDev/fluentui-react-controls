@@ -4,6 +4,7 @@ import { cssClasses } from "@spfxappdev/utility";
 
 export interface ICardActionProps {
   vertical?: boolean;
+  className?: string;
 }
 
 export const CardAction: React.FunctionComponent<ICardActionProps> = (
@@ -16,7 +17,7 @@ export const CardAction: React.FunctionComponent<ICardActionProps> = (
   additionalCss[styles["card--actions-vertical"]] = props.vertical;
 
   return (
-    <div className={css(styles["card--actions"], additionalCss)}>
+    <div className={css(styles["card--actions"], additionalCss, props.className)}>
       {props.children}
     </div>
   );

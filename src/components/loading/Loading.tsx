@@ -11,7 +11,7 @@ export interface ILoadingProps {
 }
 
 export const Loading: React.FunctionComponent<ILoadingProps> = (props: ILoadingProps) => {
-    const loadingId: string = `loading`;
+    const loadingId: string = `loadingContainer`;
     let loadingContainer = document.getElementById(loadingId);
 
     if (isNullOrEmpty(loadingContainer)) {

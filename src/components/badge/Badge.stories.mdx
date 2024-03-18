@@ -6,17 +6,37 @@ import { Badge } from './';
 
 # Badge
 
-Accordion element that expands when the user clicks on the header. If the icon is present it is rotated 90deg when item is expanded.
+The Badge Component is a visual element used to display concise information, typically in the form of a small icon or label. 
+Badges are often used to indicate status, notifications, or other contextual information within an interface. 
+They can be styled and customized to suit various design requirements.
 
-## Arguments
+## Usage
 
-<ArgTypes of={Badge} />
+The Badge Component is commonly employed in user interfaces to draw attention to specific elements or to provide visual feedback to users. Some common use cases include:
+
+- **Status Indicators**: Badges can be used to indicate the status of an item, such as "New," "Completed," or "In Progress."
+
+- **Notification Counters**: Badges can display counts to indicate the number of unread messages, notifications, or pending tasks.
+
+- **Dynamic Content**: Badges can be dynamically updated to reflect changes in the application state, such as the number of items in a shopping cart or the number of new messages.
+
+- **Labels**: Badges can serve as labels for categorization or tagging purposes, helping users quickly identify and filter content.
+
+- **Visual Enhancements**: Badges can enhance the visual appeal of a user interface by adding decorative elements or highlighting important information.
+
+In summary, the Badge Component is a versatile UI element that provides a visually appealing way to convey information and enhance user experience within web applications.
 
 export const BasicTemplate = (args) => (
   <div>
-    Version <Badge {...args}>1.0.0</Badge>
+    <div>
+      Version <Badge {...args}>1.0.0</Badge>
+    </div>
   </div>
 );
+
+## Examples
+
+### Basic
 
 <Canvas>
   <Story name="Basic">{BasicTemplate.bind({})}</Story>

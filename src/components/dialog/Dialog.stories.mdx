@@ -6,13 +6,25 @@ import { PrimaryButton } from '@fluentui/react';
 
 <Meta title="Components/Dialog" />
 
-# Alert
+# Dialog
 
-Accordion element that expands when the user clicks on the header. If the icon is present it is rotated 90deg when item is expanded.
+The dialog component is indeed part of the Fluent UI Controls Framework. 
+However, the components mentioned here mainly function as utilities for creating various types of dialogs within applications. 
+They offer essential features for easily adding alert, confirm, and prompt dialogs.
 
-## Arguments
+In summary, the controls mentioned here simplify the creation of important dialog boxes, improve user interaction and enable a smoother user experience in applications.
+
+> Note: There are also "plugins" for each type of dialog to avoid having to render the component using state handling, for example. This makes it possible, for example, to call an alert with just one line of code. You can find out more here: [Dialog Plugin](?path=/docs/plugins-dialog--docs)
+
+## Alert
+
+The alert dialog can be used to inform the user about something, regardless of whether it is a success, an error or something else. The user must click on a button to close the dialog.
+
+### Arguments
 
 <ArgTypes of={AlertDialog} />
+
+### Examples
 
 <Canvas>
   <Story name="Alert"
@@ -42,13 +54,15 @@ Accordion element that expands when the user clicks on the header. If the icon i
   </Story>
 </Canvas>
 
-# Confirm
+## Confirm
 
-Accordion element that expands when the user clicks on the header. If the icon is present it is rotated 90deg when item is expanded.
+The confirmation dialog can be used to let the user decide about something, e.g. whether the user is sure to do something specific.
 
-## Arguments
+### Arguments
 
 <ArgTypes of={ConfirmDialog} />
+
+### Examples
 
 <Canvas>
   <Story name="Confirm"
@@ -84,13 +98,18 @@ Accordion element that expands when the user clicks on the header. If the icon i
   </Story>
 </Canvas>
 
-# Prompt
+## Prompt
 
-Accordion element that expands when the user clicks on the header. If the icon is present it is rotated 90deg when item is expanded.
+The prompt dialog is required to allow the user to enter additional data required by the application.
 
-## Arguments
+### Arguments
 
 <ArgTypes of={PromptDialog} />
+
+
+### Examples
+
+#### Basic
 
 <Canvas>
   <Story name="Basic Prompt"
@@ -126,6 +145,8 @@ Accordion element that expands when the user clicks on the header. If the icon i
   </Story>
 </Canvas>
 
+#### Prompt with validation
+
 <Canvas>
   <Story name="Prompt with validation"
   args={{
@@ -153,7 +174,7 @@ Accordion element that expands when the user clicks on the header. If the icon i
             required: true,
             label: "Name",
             onChange: (ev, newValue) => {
-              setDisableButton((newValue && newValue.trim().length < 3));
+              setDisableButton(!newValue || (newValue && newValue.trim().length < 3));
             }
           }
         }

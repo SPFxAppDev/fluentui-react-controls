@@ -5,6 +5,7 @@ import { cssClasses } from "@spfxappdev/utility";
 export interface ICardImageContentProps {
   showOnBottom?: boolean;
   textCenter?: boolean;
+  className?: string;
 }
 
 export const CardImageContent: React.FunctionComponent<
@@ -12,7 +13,7 @@ export const CardImageContent: React.FunctionComponent<
 > = (props = { showOnBottom: true }) => {
   const css = cssClasses;
   return (
-    <div className={css(styles["card--img-content"])}>
+    <div className={css(styles["card--img-content"], props.className)}>
       <div
         className={css({
           "absolute-bottom": props.showOnBottom,
