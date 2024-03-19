@@ -1,6 +1,6 @@
 {
   "name": "@spfxappdev/fluentui-react-controls",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -14,7 +14,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/SPFxAppDev/ts-utility.git"
+    "url": "git+https://github.com/SPFxAppDev/fluentui-react-controls.git"
   },
   "keywords": [
     "fluent ui",
@@ -24,9 +24,9 @@
   "author": "Seryoga",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/SPFxAppDev/ts-utility/issues"
+    "url": "https://github.com/SPFxAppDev/fluentui-react-controls/issues"
   },
-  "homepage": "https://github.com/SPFxAppDev/ts-utility#readme",
+  "homepage": "https://github.com/SPFxAppDev/fluentui-react-controls#readme",
   "devDependencies": {
     "@storybook/addon-docs": "7.6.10",
     "@storybook/addon-essentials": "7.6.10",

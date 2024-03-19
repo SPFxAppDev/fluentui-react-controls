@@ -22,9 +22,6 @@ export abstract class PromptDialog {
             }}
             textFieldProps={{
                 onChange: (ev: any, newVal: string) => {
-
-                    console.log("SSC content", content);
-
                     if (isFunction(getDeepOrDefault(props, "textFieldProps.onChange"))) {
                         props.textFieldProps.onChange(content.props, newVal);
                     }
