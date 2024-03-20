@@ -1,0 +1,87 @@
+import { ArgTypes } from '@storybook/blocks';
+import { Meta, Story, Canvas } from '@storybook/addon-docs';
+import { TreeView } from './';
+import { initializeIcons } from '@fluentui/react/lib/Icons';
+
+<Meta title="Components/Tree View" component={TreeView} />
+
+# TreeView
+
+The `TreeView` component is a powerful accessible user interface element that displays hierarchical data in a tree-like structure. 
+It provides users with an intuitive way to navigate through nested categories, folders or other hierarchical data sets. 
+It offers extensive customization options and is fully keyboard accessible, allowing users to seamlessly interact with it using only their keyboard.
+
+
+
+## Arguments
+
+<ArgTypes of={TreeView} />
+
+export const BasicTemplate = (args) => (
+  <div>
+    {initializeIcons()}
+    <TreeView {...args} />
+  </div>
+);
+
+<Canvas>
+  <Story
+    name="Basic"
+    args={{
+      items: [
+        {
+          key: 'TreeviewItem1',
+          label: 'Item 1',
+          children: [
+            {
+              key: 'TreeviewItem1_1',
+              label: 'Item 1.1',
+            },
+            {
+              key: 'TreeviewItem1_2',
+              label: 'Item 1.2',
+            },
+            {
+              key: 'TreeviewItem1_3',
+              label: 'Item 1.3',
+            },
+          ],
+        },
+        {
+          key: 'TreeviewItem2',
+          label: 'Item 2',
+        },
+        {
+          key: 'TreeviewItem3',
+          label: 'Item 3',
+          children: [
+            {
+              key: 'TreeviewItem3_1',
+              label: 'Item 3.1',
+            },
+            {
+              key: 'TreeviewItem3_2',
+              label: 'Item 3.2',
+              children: [
+                {
+                  key: 'TreeviewItem3_2_1',
+                  label: 'Item 3.2.1',
+                },
+                {
+                  key: 'TreeviewItem3_2_2',
+                  label: 'Item 3.2.2',
+                },
+                {
+                  key: 'TreeviewItem3_2_3',
+                  label: 'Item 3.2.3',
+                },
+              ],
+            },
+          ],
+        },
+      ],
+    }}
+  >
+    {BasicTemplate.bind({})}
+  </Story>
+</Canvas>

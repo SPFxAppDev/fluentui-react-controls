@@ -1,11 +1,11 @@
 {
   "name": "@spfxappdev/fluentui-react-controls",
-  "version": "0.0.1",
+  "version": "0.0.6",
   "description": "",
-  "main": "lib/index.js",
-  "types": "lib/index.d.ts",
+  "main": "spfx/lib/controls/index.js",
+  "types": "spfx/lib/controls/index.d.ts",
   "files": [
-    "lib"
+    "spfx/lib/controls"
   ],
   "scripts": {
     "prepublish": "tsc",
@@ -40,8 +40,8 @@
     "@storybook/react-webpack5": "7.6.10",
     "@storybook/test": "7.6.10",
     "@storybook/theming": "^8.0.0",
-    "@types/react": "17.0.1",
-    "@types/react-dom": "17.0.1",
+    "@types/react": "17.0.45",
+    "@types/react-dom": "17.0.17",
     "sass": "^1.71.1",
     "sass-loader": "^14.1.1",
     "storybook": "7.6.10",

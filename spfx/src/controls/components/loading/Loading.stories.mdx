@@ -1,0 +1,80 @@
+import { useState } from 'react';
+import { ArgTypes } from '@storybook/blocks';
+import { Meta, Story, Canvas } from '@storybook/addon-docs';
+import { Loading } from './';
+import { PrimaryButton } from '@fluentui/react';
+
+<Meta title="Components/Loading" component={Loading} />
+
+# Loading
+
+The `Loading` component is used as a tool to display an overlay with a spinner over the content of your application to signal to users that a background task is being performed.
+
+> Note: There is also a "plugin" for a loading component to avoid having to render the component using state handling, for example. You can find out more about this here: [Loading Plugin](?path=/docs/plugins-loading--docs)
+
+## Arguments
+
+<ArgTypes of={Loading} />
+
+## Examples
+
+export const BasicTemplate = (args) => <div></div>;
+
+### Basic
+
+<Canvas>
+  <Story name="Basic">
+  {(args) => {
+      const [showLoading, setShowLoading] = useState(false);
+      return (
+        <div>
+        <PrimaryButton
+        onClick={() => {
+            setShowLoading(true);
+
+            var timer = setTimeout(() => {
+            setShowLoading(false);
+            timer = void 0
+            }, 3000);
+        }}
+        >Show Loading</PrimaryButton>
+        <Loading hidden={!showLoading} />
+        </div>
+      );
+
+}}
+
+  </Story>
+</Canvas>
+
+
+### With Spinner properties
+
+<Canvas>
+  <Story name="With Spinner properties"
+  args={{
+    size: 1,
+    label: "Please wait..."
+  }}>
+  {(args) => {
+      const [showLoading, setShowLoading] = useState(false);
+      return (
+        <div>
+        <PrimaryButton
+        onClick={() => {
+            setShowLoading(true);
+
+            var timer = setTimeout(() => {
+            setShowLoading(false);
+            timer = void 0
+            }, 3000);
+        }}
+        >Show Loading</PrimaryButton>
+        <Loading hidden={!showLoading} spinnerProps={args} />
+        </div>
+      );
+
+}}
+
+  </Story>
+</Canvas>

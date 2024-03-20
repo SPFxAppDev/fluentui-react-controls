@@ -1,0 +1,25 @@
+{
+  "@microsoft/generator-sharepoint": {
+    "packageManager": [
+      "pnpm",
+      "pnpm",
+      "pnpm"
+    ],
+    "plusBeta": false,
+    "isCreatingSolution": true,
+    "nodeVersion": "16.19.0",
+    "sdksVersions": {
+      "@microsoft/microsoft-graph-client": "3.0.2",
+      "@microsoft/teams-js": "2.9.1"
+    },
+    "version": "1.17.4",
+    "libraryName": "spfxappdev-fluent-ui-controls",
+    "libraryId": "5f7eadc1-d5fd-4458-a8e0-325a2fca66ee",
+    "environment": "spo",
+    "solutionName": "spfxappdev fluent ui controls",
+    "solutionShortDescription": "spfxappdev fluent ui controls description",
+    "skipFeatureDeployment": true,
+    "isDomainIsolated": false,
+    "componentType": "webpart"
+  }
+}

@@ -1,0 +1,33 @@
+import { ArgTypes } from '@storybook/blocks';
+import { Meta, Story, Canvas } from '@storybook/addon-docs';
+import { SearchableDropDown } from './';
+import { DefaultButton, PrimaryButton } from '@fluentui/react';
+
+<Meta title="Components/Searchable Dropdown" component={SearchableDropDown} />
+
+# SearchableDropDown
+
+The Searchable DropDown Component is a versatile user interface element designed to offer a seamless way to select options from a dropdown menu while enabling users to search for specific items within the list. 
+It combines the functionality of a traditional dropdown with a search feature, enhancing user experience and efficiency.
+
+## Arguments
+
+<ArgTypes of={SearchableDropDown} />
+
+export const BasicTemplate = (args) => <SearchableDropDown {...args} />;
+
+## Examples
+
+<Canvas>
+  <Story
+    args={{
+      onSearchValueChanged: (val) => {
+        console.log('SEARCH VALUE', val);
+      },
+      options: [{ key: 'test', text: 'test' }],
+    }}
+    name="Basic"
+  >
+    {BasicTemplate.bind({})}
+  </Story>
+</Canvas>

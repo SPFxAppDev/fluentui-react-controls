@@ -1,0 +1,40 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
+  "solution": {
+    "name": "spfxappdev-fluent-ui-controls-client-side-solution",
+    "id": "5f7eadc1-d5fd-4458-a8e0-325a2fca66ee",
+    "version": "1.0.0.0",
+    "includeClientSideAssets": true,
+    "skipFeatureDeployment": true,
+    "isDomainIsolated": false,
+    "developer": {
+      "name": "",
+      "websiteUrl": "",
+      "privacyUrl": "",
+      "termsOfUseUrl": "",
+      "mpnId": "Undefined-1.17.4"
+    },
+    "metadata": {
+      "shortDescription": {
+        "default": "spfxappdev fluent ui controls description"
+      },
+      "longDescription": {
+        "default": "spfxappdev fluent ui controls description"
+      },
+      "screenshotPaths": [],
+      "videoUrl": "",
+      "categories": []
+    },
+    "features": [
+      {
+        "title": "spfxappdev-fluent-ui-controls Feature",
+        "description": "The feature that activates elements of the spfxappdev-fluent-ui-controls solution.",
+        "id": "20288cda-92fb-4a51-aa15-5ddd3ae42c93",
+        "version": "1.0.0.0"
+      }
+    ]
+  },
+  "paths": {
+    "zippedPackage": "solution/spfxappdev-fluent-ui-controls.sppkg"
+  }
+}

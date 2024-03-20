@@ -1,0 +1,151 @@
+import { ArgTypes } from '@storybook/blocks';
+import { Meta, Story, Canvas } from '@storybook/addon-docs';
+import { Card, CardSection, CardAction, CardImage, CardImageContent } from './';
+import { DefaultButton, PrimaryButton } from '@fluentui/react';
+
+<Meta title="Components/Card" component={Card} />
+
+# Card
+
+The Card component is a fundamental UI element designed to efficiently display grouped content in a visually appealing manner. 
+This design pattern has rapidly gained popularity as a core element in various applications, including apps, website previews, and email content. 
+The primary purpose of the Card is to organize and contain information while providing a structured layout that fosters predictability and ease of consumption.
+
+As digital interfaces strive to accommodate an increasing amount of content within limited screen real estate, Cards have emerged as a preferred design pattern for many prominent companies, such as Microsoft, Google and Twitter. 
+This trend underscores the effectiveness and versatility of Cards in managing and presenting diverse types of content.
+
+The Card component is intentionally lightweight, serving primarily as a container capable of hosting other components as needed. 
+Its flexibility allows for seamless integration with various content types, making it suitable for a wide range of applications and use cases.
+
+{/* ## Arguments
+
+<ArgTypes of={Card} /> */}
+
+> The card component is basically just a container and has no custom properties (it only inherits the properties from a DIV-Element). Theoretically, all HTML elements are possible as child elements, but I recommend using the components: `CardSection`, `CardImage`, `CardImageContent`, and `CardAction`
+
+## Usage
+
+The Card Component is suitable for numerous scenarios where content organization and presentation are paramount. Some common use cases include:
+
+- **Content Grouping**: Use Cards to group related content together, providing context and structure to information displayed on the interface.
+
+- **Preview Thumbnails**: Display previews of articles, products, or multimedia content within Cards to give users a glimpse of what to expect before delving deeper.
+
+- **Dashboard Widgets**: Employ Cards to represent individual widgets or modules within a dashboard layout, enabling users to interact with different functionalities seamlessly.
+
+- **Profile Cards**: Showcase user profiles or contacts within Cards, including relevant information such as avatars, names, and brief descriptions.
+
+- **Product Listings**: Present product details, including images, descriptions, and pricing, in a visually appealing manner using Cards within e-commerce platforms.
+
+In essence, the Card Component serves as a versatile building block for organizing and presenting content effectively within modern web applications, offering a balance between visual appeal and functional clarity.
+
+export const loremText = `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.`;
+
+export const BasicTemplate = (args) => (
+  <Card style={{width: "400px"}}>
+    <CardSection>
+      <h4>Card title</h4>
+      <h5>Subtitle</h5>
+    </CardSection>
+    <hr />
+
+    <CardSection>{loremText}</CardSection>
+
+  </Card>
+);
+
+export const WithActionTemplate = (args) => (
+  <Card style={{width: "400px"}}>
+    <CardSection>
+      <h4>Card title</h4>
+      <h5>Subtitle</h5>
+    </CardSection>
+    <hr />
+
+    <CardSection>{loremText}</CardSection>
+
+    <CardAction {...args}>
+      <PrimaryButton>Action 1</PrimaryButton>
+      <DefaultButton>Action 2</DefaultButton>
+    </CardAction>
+
+  </Card>
+);
+
+export const WithImageTemplate = (args) => (
+  <Card style={{width: "400px"}}>
+    <CardImage {...args}>
+      <CardImageContent showOnBottom>Text</CardImageContent>
+    </CardImage>
+
+    <CardSection>{loremText}</CardSection>
+
+    <hr />
+
+    <CardAction>
+      <PrimaryButton>Action</PrimaryButton>
+      <DefaultButton>Action 2</DefaultButton>
+    </CardAction>
+
+  </Card>
+);
+
+export const WithImageAndContentTemplate = (args) => (
+  <Card style={{width: "400px"}}>
+    <CardImage imageSrc="https://picsum.photos/450/300">
+      <CardImageContent {...args}>Text</CardImageContent>
+    </CardImage>
+
+    <CardSection>{loremText}</CardSection>
+
+    <hr />
+
+    <CardAction>
+      <PrimaryButton>Action</PrimaryButton>
+      <DefaultButton>Action 2</DefaultButton>
+    </CardAction>
+
+  </Card>
+);
+
+## Basic
+
+<Canvas>
+  <Story name="Basic">{BasicTemplate.bind({})}</Story>
+</Canvas>
+
+## Card with actions
+
+### CardAction Arguments
+
+<ArgTypes of={CardAction} />
+
+<Canvas>
+  <Story name="Actions" args={{ vertical: false }}>
+    {WithActionTemplate.bind({})}
+  </Story>
+</Canvas>
+
+## Card with image
+
+### CardImage Arguments
+
+<ArgTypes of={CardImage} />
+
+<Canvas>
+  <Story name="Image" args={{ imageSrc: 'https://picsum.photos/450/300' }}>
+    {WithImageTemplate.bind({})}
+  </Story>
+</Canvas>
+
+## Card with image and image content
+
+### CardImage Arguments
+
+<ArgTypes of={CardImageContent} />
+
+<Canvas>
+  <Story name="Image with content" args={{ showOnBottom: false, textCenter: false }}>
+    {WithImageAndContentTemplate.bind({})}
+  </Story>
+</Canvas>

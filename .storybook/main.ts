@@ -1,7 +1,7 @@
 import type { StorybookConfig } from '@storybook/react-webpack5';
 
 const config: StorybookConfig = {
-  stories: ['../src/**/*.mdx', '../src/**/*.stories.@(js|jsx|mjs|ts|tsx|mdx)'],
+  stories: ['../stories/**/*.mdx', '../stories/**/*.stories.@(js|jsx|mjs|ts|tsx|mdx)'],
   addons: [
     '@storybook/addon-links',
     '@storybook/addon-essentials',
@@ -17,6 +17,7 @@ const config: StorybookConfig = {
     },
   },
   webpackFinal: async (config: any) => {
+    // config.resolve.modules = '
     config.module.rules.push({
       test: /\.s[ac]ss$/i,
       use: ['style-loader', 'css-loader', 'sass-loader'],

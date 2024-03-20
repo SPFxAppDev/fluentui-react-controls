@@ -1,0 +1,81 @@
+import { useState } from 'react';
+import { ArgTypes } from '@storybook/blocks';
+import { Meta, Story, Canvas } from '@storybook/addon-docs';
+import { Loading } from './';
+import { PrimaryButton } from '@fluentui/react';
+
+<Meta title="Plugins/Loading" component={Loading} />
+
+# Loading Plugin
+
+The `Laoding Plugin` is a utility that simplifies the process of opening a loading screen within React applications without the need for complex state management. 
+With just a single line of code, developers can use this plugin to open loading screens.
+
+{/* ## Arguments
+
+<ArgTypes of={Loading} /> */}
+
+## Examples
+
+
+
+export const BasicTemplate = (args) => <div></div>;
+
+### Basic
+
+<Canvas>
+  <Story name="Basic">
+  {(args) => {
+      
+      return (
+        <div>
+        <PrimaryButton
+        onClick={() => {
+            Loading.show();
+
+            var timer = setTimeout(() => {
+                Loading.hide();
+                timer = void 0
+            }, 3000);
+        }}
+        >Show Loading</PrimaryButton>
+        </div>
+      );
+
+}}
+
+  </Story>
+</Canvas>
+
+### With Spinner properties
+
+<Canvas>
+  <Story name="With Spinner properties"
+  args={
+    {
+        spinnerProps: {
+            size: 1,
+            label: "Please wait..."
+        }
+    }}>
+  {(args) => {
+      const [showLoading, setShowLoading] = useState(false);
+      return (
+        <div>
+        <PrimaryButton
+        onClick={() => {
+            Loading.show(args);
+
+            var timer = setTimeout(() => {
+                Loading.hide();
+            timer = void 0
+            }, 3000);
+        }}
+        >Show Loading</PrimaryButton>
+        </div>
+      );
+
+}}
+
+  </Story>
+</Canvas>

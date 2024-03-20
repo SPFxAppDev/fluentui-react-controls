@@ -1,0 +1,28 @@
+import { ArgTypes } from '@storybook/blocks';
+import { Meta, Story, Canvas } from '@storybook/addon-docs';
+import { IconPicker } from './';
+import { initializeIcons } from '@fluentui/react/lib/Icons';
+
+<Meta title="Components/Iconpicker" component={IconPicker} />
+
+# Iconpicker
+
+The IconPicker component is a UI element designed to facilitate the selection of icons from the "Fluent UI Icons" set. 
+It allows users to conveniently select icons and provides a visual representation of the available options. 
+This component enhances the user experience by providing a seamless way to incorporate icons into applications, websites or other digital interfaces.
+
+## Arguments
+
+<ArgTypes of={IconPicker} />
+
+{initializeIcons()}
+
+export const BasicTemplate = (args) => <IconPicker {...args} />;
+
+## Examples
+
+<Canvas>
+  <Story args={{ label: "Pick an icon"}} name="Basic">
+    {BasicTemplate.bind({})}
+  </Story>
+</Canvas>

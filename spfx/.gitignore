@@ -6,17 +6,14 @@ npm-debug.log*
 # Dependency directories
 node_modules
 
-#parcel cache
-.cache
-build
-.parcel-cache
-
-/stories/**/*.ts
-/stories/**/*.tsx
-/stories/**/*.scss
-
 # Build generated files
+dist
 lib
+release
+solution
+temp
+*.sppkg
+.heft
 
 # Coverage directory used by tools like istanbul
 coverage
