@@ -24,6 +24,27 @@ The alert dialog can be used to inform the user about something, regardless of w
 
 <ArgTypes of={AlertDialog} />
 
+### Usage
+
+#### Import
+
+```typescript
+import { AlertDialog } from '@spfxappdev/fluentui-react-controls';
+```
+
+#### Sample Code
+
+```typescript
+<AlertDialog 
+  hidden={!this.state.showAlert} 
+  onDismiss={() => {
+    this.setState({
+      showAlert: false
+    });
+  }} 
+/>
+```
+
 ### Examples
 
 <Canvas>
@@ -61,6 +82,32 @@ The confirmation dialog can be used to let the user decide about something, e.g.
 ### Arguments
 
 <ArgTypes of={ConfirmDialog} />
+
+### Usage
+
+#### Import
+
+```typescript
+import { ConfirmDialog } from '@spfxappdev/fluentui-react-controls';
+```
+
+#### Sample Code
+
+```typescript
+<ConfirmDialog
+  hidden={!this.state.showConfirm} 
+  onConfirmed={() => {
+      this.setState({
+        showConfirm: false
+      });
+  }} 
+  onCanceled={() => {
+      this.setState({
+        showConfirm: false
+      });
+  }} 
+/>
+```
 
 ### Examples
 
@@ -105,6 +152,44 @@ The prompt dialog is required to allow the user to enter additional data require
 ### Arguments
 
 <ArgTypes of={PromptDialog} />
+
+#### Import
+
+```typescript
+import { PromptDialog } from '@spfxappdev/fluentui-react-controls';
+```
+
+#### Sample Code
+
+```typescript
+<PromptDialog {...args}
+  confirmButtonDisabled={this.state.isPromptBtnDisabled}
+  textFieldProps={
+    {
+      required: true,
+      label: "Name",
+      onChange: (ev, newValue) => {
+        const isDisabled = !newValue || (newValue && newValue.trim().length < 3);
+        this.setState({
+          isPromptBtnDisabled: isDisabled
+        });
+      }
+    }
+  }
+  hidden={!this.state.showPrompt}
+  onConfirmed={(val) => {
+    console.log("Entered Value is", val);
+    this.setState({
+      showPrompt: false
+    });
+  }}
+  onCanceled={() => {
+    this.setState({
+      showPrompt: false
+    });
+  }} 
+/>
+```
 
 
 ### Examples

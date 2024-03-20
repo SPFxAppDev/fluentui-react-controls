@@ -28,5 +28,9 @@ const config: StorybookConfig = {
   docs: {
     autodocs: 'tag',
   },
+  managerHead: (head) => `
+    ${head}
+    <title>Teeeeest</title>
+  `,
 };
 export default config;

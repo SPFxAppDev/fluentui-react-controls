@@ -39,6 +39,31 @@ The Card Component is suitable for numerous scenarios where content organization
 
 In essence, the Card Component serves as a versatile building block for organizing and presenting content effectively within modern web applications, offering a balance between visual appeal and functional clarity.
 
+### Import
+
+```typescript
+import { Card, CardSection, CardAction, CardImage, CardImageContent } from '@spfxappdev/fluentui-react-controls';
+```
+
+### Sample Code
+
+```typescript
+<Card style={{width: "400px"}}>
+  <CardSection>
+    <h4>Card title</h4>
+    <h5>Subtitle</h5>
+  </CardSection>
+  <hr />
+
+  <CardSection>{loremText}</CardSection>
+
+  <CardAction>
+    <PrimaryButton>Action 1</PrimaryButton>
+    <DefaultButton>Action 2</DefaultButton>
+  </CardAction>
+</Card>
+```
+
 export const loremText = `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.`;
 
 export const BasicTemplate = (args) => (

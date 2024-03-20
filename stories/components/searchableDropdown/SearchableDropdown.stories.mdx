@@ -14,6 +14,24 @@ It combines the functionality of a traditional dropdown with a search feature, e
 
 <ArgTypes of={SearchableDropDown} />
 
+## Usage
+
+### Import
+
+```typescript
+import { SearchableDropDown } from '@spfxappdev/fluentui-react-controls';
+```
+
+### Sample Code
+
+```typescript
+<SearchableDropDown onSearchValueChanged={(val) => {
+    console.log('SEARCH VALUE', val);
+  }}
+  options={[{ key: 'key1', text: 'val1' }]}
+/>
+```
+
 export const BasicTemplate = (args) => <SearchableDropDown {...args} />;
 
 ## Examples

@@ -15,6 +15,22 @@ It displays a container with the background color representing the selected colo
 
 <ArgTypes of={InlineColorPicker} />
 
+## Usage
+
+### Import
+
+```typescript
+import { InlineColorPicker } from '@spfxappdev/fluentui-react-controls';
+```
+
+### Sample Code
+
+```typescript
+<InlineColorPicker color={this.state.color} onChange={(ev, color) => { this.setState({ color: color }) }} />
+```
+
+## Examples
+
 <Canvas>
   <Story args={{ color: "#000000", label: "Select a color" }} name="Basic">
   {(args) => {

@@ -1,0 +1,24 @@
+import { Meta, Story, Canvas } from '@storybook/addon-docs';
+
+<Meta title="Plugins/Getting started with Plugins" />
+
+# Getting started with Plugins
+
+
+Plugins are utilities that simplify the process of using the components. For example, they can open a [AlertDialog](/?path=/docs/plugins-dialog--docs) in React applications without the need for complex state management. 
+Or with just a single line of code, developers can use this plugin to open [loading screens](?path=/docs/plugins-loading--docs).
+
+## Usage
+
+```typescript
+//via "Plugins" Wrapper
+import { Plugins } from '@spfxappdev/fluentui-react-controls';
+
+//or directly
+
+import { AlertDialog } from '@spfxappdev/fluentui-react-controls/spfx/lib/controls/plugins';
+
+//or directly with alias
+
+import { AlertDialog as AlertDialogPlugin } from '@spfxappdev/fluentui-react-controls/spfx/lib/controls/plugins';
+```
