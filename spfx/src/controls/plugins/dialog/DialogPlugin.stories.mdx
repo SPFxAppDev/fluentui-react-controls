@@ -12,9 +12,26 @@ With just a single line of code, these plugins enable developers to open dialogs
 
 ## Alert
 
+If you use the Alert plugin, you can handle the "dismiss" event via the `onDismiss` method by passing it to the options of the `open` method, 
+or you can `await` for the "dismiss" event, as the `open` method returns a `Promise<void>` (alternatively: use the `then()` method in non-`async` functions)
+
 {/* ### Arguments
 
 <ArgTypes of={AlertDialog} /> */}
+
+### Sample Code
+
+```typescript
+import { Plugins } from '@spfxappdev/fluentui-react-controls';
+
+<PrimaryButton
+  onClick={async () => {
+      await Plugins.AlertDialog.open(args);
+  }}
+>
+Show Alert
+</PrimaryButton>
+```
 
 ### Examples
 
@@ -30,8 +47,8 @@ With just a single line of code, these plugins enable developers to open dialogs
       return (
         <div>
         <PrimaryButton
-        onClick={() => {
-            AlertDialog.open(args);
+        onClick={async () => {
+            await AlertDialog.open(args);
         }}
         >Show Alert</PrimaryButton>
         </div>
@@ -44,9 +61,27 @@ With just a single line of code, these plugins enable developers to open dialogs
 
 ## Confirm
 
+If you use the Confirm plugin, you can handle the "dismiss" event via the `onConfirmed` or `onCanceled` method by passing it to the options of the `open` method, 
+or you can `await` for the "dismiss" event, as the `open` method returns a `Promise<boolean>` (alternatively: use the `then()` method in non-`async` functions). 
+If the user confirms the dialog, the return value is `true`, otherwise `false`.
+
 {/* ### Arguments
 
 <ArgTypes of={AlertDialog} /> */}
+
+### Sample Code
+
+```typescript
+import { Plugins } from '@spfxappdev/fluentui-react-controls';
+
+<PrimaryButton
+  onClick={async () => {
+      await Plugins.ConfirmDialog.open(args);
+  }}
+>
+Show Confirm
+</PrimaryButton>
+```
 
 ### Examples
 
@@ -77,9 +112,27 @@ With just a single line of code, these plugins enable developers to open dialogs
 
 ## Prompt
 
+If you use the Prompt plugin, you can handle the "dismiss" event via the `onConfirmed` or `onCanceled` method by passing it to the options of the `open` method, 
+or you can `await` for the "dismiss" event, as the `open` method returns a `Promise<string>` (alternatively: use the `then()` method in non-`async` functions). 
+If the user confirms the dialog, the return value is the value entered, otherwise an empty string is returned.
+
 {/* ### Arguments
 
-<ArgTypes of={PromptDialog} /> */}
+<ArgTypes of={AlertDialog} /> */}
+
+### Sample Code
+
+```typescript
+import { Plugins } from '@spfxappdev/fluentui-react-controls';
+
+<PrimaryButton
+  onClick={async () => {
+      await Plugins.PromptDialog.open(args);
+  }}
+>
+Show Prompt
+</PrimaryButton>
+```
 
 ### Examples
 

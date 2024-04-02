@@ -48,8 +48,7 @@ $white: getSharePointColor($spWhite, #ffffff);
 
 :global {
   .flex-row,
-  .flex-column,
-  .flex {
+  .flex-column {
     display: flex;
     flex-wrap: wrap;
   }

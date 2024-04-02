@@ -1,6 +1,6 @@
 {
   "name": "@spfxappdev/fluentui-react-controls",
-  "version": "0.0.6",
+  "version": "0.0.8",
   "description": "",
   "main": "spfx/lib/controls/index.js",
   "types": "spfx/lib/controls/index.d.ts",

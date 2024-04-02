@@ -1,7 +1,8 @@
+import { useState } from 'react';
 import { ArgTypes } from '@storybook/blocks';
 import { Meta, Story, Canvas } from '@storybook/addon-docs';
 import { SearchableDropDown } from './';
-import { DefaultButton, PrimaryButton } from '@fluentui/react';
+import { DefaultButton, PrimaryButton, DropdownMenuItemType } from '@fluentui/react';
 
 <Meta title="Components/Searchable Dropdown" component={SearchableDropDown} />
 
@@ -32,20 +33,68 @@ import { SearchableDropDown } from '@spfxappdev/fluentui-react-controls';
 />
 ```
 
-export const BasicTemplate = (args) => <SearchableDropDown {...args} />;
 
 ## Examples
 
 <Canvas>
   <Story
     args={{
-      onSearchValueChanged: (val) => {
-        console.log('SEARCH VALUE', val);
-      },
-      options: [{ key: 'test', text: 'test' }],
     }}
     name="Basic"
   >
-    {BasicTemplate.bind({})}
+   {(args) => {
+
+      const initialItems = [
+  {
+    key: "fruitsHeader",
+    text: "Fruits",
+    itemType: DropdownMenuItemType.Header,
+  },
+  { key: "apple", text: "Apple" },
+  { key: "banana", text: "Banana" },
+  { key: "orange", text: "Orange" },
+  { key: "grape", text: "Grape" },
+  { key: "divider_1", text: "-", itemType: DropdownMenuItemType.Divider },
+  {
+    key: "vegetablesHeader",
+    text: "Vegetables",
+    itemType: DropdownMenuItemType.Header,
+  },
+  { key: "broccoli", text: "Broccoli" },
+  { key: "carrot", text: "Carrot" },
+  { key: "lettuce", text: "Lettuce" },
+];
+
+    const [filteredItems, setFilteredItems] = useState(initialItems);
+    const [selectedItemKey, setSelectedItemKey] = useState("");
+
+      return (
+      <SearchableDropDown 
+        {...args}
+        defaultSelectedKey={selectedItemKey}
+        options={filteredItems}
+        onSearchValueChanged={(val) => {
+          if(typeof val !== "string" || (typeof val === "string" && val.trim().length < 1)) {
+            setFilteredItems([...initialItems]);
+            return;
+          }
+
+          const filteredOptions = [...initialItems].filter(
+          (i) =>
+            i.text.toLowerCase().indexOf(val.toLowerCase()) >= 0 &&
+            (!i.itemType || i.itemType === DropdownMenuItemType.Normal),
+          );
+
+          setFilteredItems([...filteredOptions]);
+
+        }}
+      />);
+   }}
   </Story>
 </Canvas>
+
+## Further links
+
+- [Blog post: How to create a Microsoft Fluent UI Searchable Dropdown Component with react](https://spfx-app.dev/how-to-create-a-microsoft-fluent-ui-searchable-dropdown-component-with-react)
+- [Sample with 5000 items](https://codesandbox.io/p/sandbox/fluentui-searchable-dropdown-forked-yj5jwh)
+- [Sample with few items](https://codesandbox.io/p/sandbox/fluentui-searchable-dropdown-jhfyv9)

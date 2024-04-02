@@ -1,0 +1,30 @@
+
+.base64ImageEncoder {
+    &-container {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        gap: 10px;
+
+        input[type='file'] {
+            display: none;
+        }
+    }
+
+    &-image {
+        &--preview {
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            width: 92px;
+            height: 92px;
+        }
+    }
+
+    &-buttons {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        gap: 10px;
+    }
+}

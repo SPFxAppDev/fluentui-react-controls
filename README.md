@@ -7,3 +7,7 @@ This package contains some additional controls based on Microsoft's Fluent UI Co
 ## Installation
 
 `npm i @spfxappdev/fluentui-react-controls`
+
+## Demo & Usage
+
+Examples and instructions for using the controls can be found here: [Documentation](https://spfxappdev.github.io/fluentui-react-controls)

@@ -1,6 +1,7 @@
+export * from './addNewToolbox';
 export * from './autocomplete';
 export * from './badge';
-// export * from './base64ImageEncoder';
+export * from './base64Image';
 export * from './card';
 // export * from './chip';
 export * from './dialog';

@@ -1,0 +1,133 @@
+import { useState } from 'react';
+import { ArgTypes } from '@storybook/blocks';
+import { Meta, Story, Canvas } from '@storybook/addon-docs';
+import { AddNewToolbox } from './';
+import { ListItem } from '../list';
+import { initializeIcons } from '@fluentui/react/lib/Icons';
+
+<Meta title="Components/'Add new' Toolbox" component={AddNewToolbox} />
+
+{initializeIcons()}
+
+# AddNewToolbox
+
+The "AddNewToolbox" component is a replica of the toolbox used in SharePoint for Modern Sites, e.g. to place a new web part. 
+
+## Arguments
+
+<ArgTypes of={AddNewToolbox} />
+
+## Usage
+
+The React Autocomplete Component is useful in scenarios where users need to input text efficiently by selecting from a predefined list of options. It enhances user experience by reducing typing efforts and ensuring accurate inputs.
+
+### Import
+
+```typescript
+import { AddNewToolbox } from '@spfxappdev/fluentui-react-controls';
+```
+
+### Sample Code
+
+```typescript
+import { AddNewToolbox } from '@spfxappdev/fluentui-react-controls';
+
+<AddNewToolbox
+    items={[
+        { key: "addKey", title: "Example 1", icon: "Add" },
+        { key: "editKey", title: "Example 2", icon: "Edit" },
+        { key: "deleteKey", title: "Example 3", icon: "Delete" }
+    ]}
+/>
+```
+
+## Examples
+
+### Basic
+
+<Canvas>
+  <Story
+    args={{
+        items: [
+            { key: "addKey", title: "Example 1", icon: "Add" },
+            { key: "editKey", title: "Example 2", icon: "Edit" },
+            { key: "deleteKey", title: "Example 3", icon: "Delete" }
+        ],
+        onRenderItem: undefined
+    }}
+    name="Basic"
+  >
+    {(args) => { 
+      return (
+        <div>
+          Hover over the bordered box
+          <div style={{border: "dotted 1px #000"}}>
+            <AddNewToolbox
+              {...args}
+            />
+          </div>
+        </div>
+      );
+    }}
+
+  </Story>
+</Canvas>
+
+### Always visible
+
+<Canvas>
+  <Story
+    args={{
+        items: [
+            { key: "addKey", title: "Example 1", icon: "Add" },
+            { key: "editKey", title: "Example 2", icon: "Edit" },
+            { key: "deleteKey", title: "Example 3", icon: "Delete" }
+        ],
+        onRenderItem: undefined,
+        hoverOnly: false
+    }}
+    name="Always visible"
+  >
+    {(args) => { 
+      return (
+            <AddNewToolbox
+              {...args}
+            />
+      );
+    }}
+
+  </Story>
+</Canvas>
+
+### Custom rendering
+
+<Canvas>
+  <Story
+    args={{
+        items: [
+            { key: "addKey", title: "Example 1", icon: "Add" },
+            { key: "editKey", title: "Example 2", icon: "Edit" },
+            { key: "deleteKey", title: "Example 3", icon: "Delete" }
+        ],
+        onRenderItem: (item) => {
+            return (<ListItem>
+            {item.title}
+            </ListItem>);
+        },
+        hoverOnly: false
+    }}
+    name="Custom rendering"
+  >
+    {(args) => { 
+      return (
+        <div>
+            <AddNewToolbox
+              {...args}
+            />
+        </div>
+      );
+    }}
+
+  </Story>
+</Canvas>
+
