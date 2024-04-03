@@ -27,6 +27,42 @@ The React Autocomplete Component is useful in scenarios where users need to inpu
 import { Autocomplete } from '@spfxappdev/fluentui-react-controls';
 ```
 
+### Sample Code
+
+```typescript
+import { Autocomplete, List, ListItem } from '@spfxappdev/fluentui-react-controls';
+
+<Autocomplete
+  value={value}
+  onChange={(ev, newVal) => {
+    setValue(newVal);
+  }}
+  onLoadSuggestions={async (newValue) => {
+    setValue(newValue);
+    const response = await fetch(`https://dummyjson.com/products/search?q=${newValue}`);
+    const foundProducts = await response.json();
+    setProducts(foundProducts.products)
+  }}
+  onRenderSuggestions={() => {
+    return <List separator={true}>
+    {products.map((product) => {
+                return (
+                    <ListItem
+                        clickable={true}
+                        key={`product_${product.id}`}
+                        onClick={() => {
+                            setValue(product.title);
+                        }}
+                    >
+                    {product.title}
+                    </ListItem>
+                );
+            })}
+    </List>;
+  }}
+/>
+```
+
 ## Examples
 
 ### Calling an API

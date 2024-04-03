@@ -14,6 +14,26 @@ With just a single line of code, developers can use this plugin to open loading 
 {/* ## Arguments
 
 <ArgTypes of={Loading} /> */}
+## Usage 
+
+### Sample Code
+
+```typescript
+import { Plugins } from '@spfxappdev/fluentui-react-controls';
+
+<PrimaryButton
+  onClick={() => {
+      Plugins.Loading.show();
+
+      var timer = setTimeout(() => {
+          Plugins.Loading.hide();
+          timer = void 0
+      }, 3000);
+  }}
+  >
+  Show Loading
+</PrimaryButton>
+```
 
 ## Examples
 

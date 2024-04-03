@@ -29,8 +29,9 @@ import { List, ListItem } from '@spfxappdev/fluentui-react-controls';
 
 ```typescript
 <List bordered separator>
-    <ListItem clickable={true}>abc</ListItem>
-    <ListItem>def</ListItem>
+    <ListItem clickable={true}>Item 1</ListItem>
+    <ListItem>Item 2 (not clickable)</ListItem>
+    <ListItem disabled hoverEffect={false}>Item 3 (diabled, no effect)</ListItem>
 </List>
 ```
 
@@ -38,8 +39,9 @@ import { List, ListItem } from '@spfxappdev/fluentui-react-controls';
 
 export const BasicTemplate = (args) => (
   <List {...args}>
-    <ListItem clickable={true}>abc</ListItem>
-    <ListItem>def</ListItem>
+    <ListItem clickable={true}>Item 1</ListItem>
+    <ListItem>Item 2 (not clickable)</ListItem>
+    <ListItem disabled hoverEffect={false}>Item 3 (diabled, no effect)</ListItem>
   </List>
 );
 
