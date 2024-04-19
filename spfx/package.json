@@ -27,6 +27,7 @@
     "@pnp/sp": "^3.24.0",
     "@spfxappdev/mapper": "1.0.0-beta.1",
     "@spfxappdev/utility": "^1.4.1",
+    "gulp-util": "^3.0.8",
     "office-ui-fabric-react": "^7.199.1",
     "react": "file:../node_modules/react",
     "react-dom": "file:../node_modules/react-dom",

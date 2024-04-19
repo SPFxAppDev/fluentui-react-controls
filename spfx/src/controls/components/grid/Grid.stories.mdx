@@ -1,0 +1,92 @@
+import { ArgTypes } from "@storybook/blocks";
+import { Meta, Story, Canvas } from "@storybook/addon-docs";
+import { Grid } from "./";
+
+<Meta title="Components/Grid" component={Grid} />
+
+{/* TODO: WRITE DOCS FOR GRID */}
+
+# Grid
+
+The `Grid` component provides a flexible and efficient way to create responsive grid layouts similar to Material-UI but tailored for the SPFx and Fluent UI environment.
+This component can be used as a container to define the grid's structure or as an item to specify the grid's subdivisions.
+
+## Arguments
+
+<ArgTypes of={Grid} />
+
+## Usage
+
+The React Grid Component is useful in scenarios where developers need to arrange responsive component alignment efficiently and easily.
+
+### Import
+
+```typescript
+import { Grid } from "@spfxappdev/fluentui-react-controls";
+```
+
+## Examples
+
+### Basic Grid Layout
+
+<Canvas>
+  <Story name="Basic Grid Layout">
+    {() => (
+      <Grid container spacing={2}>
+        <Grid item xs={12} sm={6} md={4} lg={3}>
+          <div className={styles.demoBox}>Item 1</div>
+        </Grid>
+        <Grid item xs={12} sm={6} md={4} lg={3}>
+          <div className={styles.demoBox}>Item 2</div>
+        </Grid>
+        <Grid item xs={12} sm={6} md={4} lg={3}>
+          <div className={styles.demoBox}>Item 3</div>
+        </Grid>
+        <Grid item xs={12} sm={6} md={4} lg={3}>
+          <div className={styles.demoBox}>Item 4</div>
+        </Grid>
+      </Grid>
+    )}
+  </Story>
+</Canvas>
+
+### Nested Grids
+
+<Canvas>
+  <Story name="Nested Grids">
+    {() => (
+      <Grid container spacing={3}>
+        <Grid item xs={12} md={8}>
+          <Grid container spacing={1}>
+            <Grid item xs={12} sm={6}>
+              <div className={styles.demoBox}>Nested Item 1</div>
+            </Grid>
+            <Grid item xs={12} sm={6}>
+              <div className={styles.demoBox}>Nested Item 2</div>
+            </Grid>
+          </Grid>
+        </Grid>
+        <Grid item xs={12} md={4}>
+          <div className={styles.demoBox}>Main Item 2</div>
+        </Grid>
+      </Grid>
+    )}
+  </Story>
+</Canvas>
+
+### Dynamic Item Sizing
+
+<Canvas>
+  <Story name="Dynamic Sizing">
+    {() => (
+      <Grid container spacing={4}>
+        <Grid item xs={6} sm={4} md={3} lg={2} xl={1}>
+          <div className={styles.demoBox}>Wide Range Item</div>
+        </Grid>
+        <Grid item xs={6} sm={8} md={9} lg={10} xl={11}>
+          <div className={styles.demoBox}>Large Item</div>
+        </Grid>
+      </Grid>
+    )}
+  </Story>
+</Canvas>
