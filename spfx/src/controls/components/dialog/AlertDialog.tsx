@@ -24,9 +24,16 @@ export const AlertDialog: React.FunctionComponent<IAlertDialogProps> = (props: I
                 dialogContentProps={{
                     title: props.title||'',
                     type: DialogType.normal,
-                    subText: props.content
                 }}
                 >
+
+        {typeof props.content !== "function" &&
+            props.content
+        }
+        {
+            typeof props.content === "function" &&
+            props.content()
+        }
 
                 <DialogFooter>
                     <PrimaryButton onClick={() => {

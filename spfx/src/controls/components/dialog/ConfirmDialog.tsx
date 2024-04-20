@@ -21,9 +21,16 @@ export const ConfirmDialog: React.FunctionComponent<IConfirmDialogProps> = (prop
         dialogContentProps={{
             title: props.title || '',
             type: DialogType.normal,
-            subText: props.content
         }}
     >
+
+        {typeof props.content !== "function" &&
+            props.content
+        }
+        {
+            typeof props.content === "function" &&
+            props.content()
+        }
 
         <DialogFooter>
             <PrimaryButton onClick={() => {

@@ -4,19 +4,31 @@ import { IComponentTestProps } from "./IComponentTestProps";
 import { escape } from "@microsoft/sp-lodash-subset";
 import {
   AddNewToolbox,
+  AlertDialog,
   Autocomplete,
+  ConfirmDialog,
   IAddNewToolboxItem,
   ListItem,
   Plugins,
+  PromptDialog,
 } from "@src/controls";
-import { Icon } from "@fluentui/react";
+import { DefaultButton, Icon } from "@fluentui/react";
 import Base64Image from "@src/controls/components/base64Image/Base64Image";
 import { Grid } from "@src/controls/components/grid/Grid";
 
+interface ComponentTestState {
+  showDialog: boolean;
+}
+
 export default class ComponentTest extends React.Component<
   IComponentTestProps,
-  {}
+  ComponentTestState
 > {
+
+  public state: ComponentTestState = {
+    showDialog: false,
+  }
+
   public render(): React.ReactElement<IComponentTestProps> {
     return (
       <>
@@ -142,7 +154,32 @@ export default class ComponentTest extends React.Component<
             </Grid>
           </Grid>
         </div>
+        <DefaultButton onClick={() => {
+          this.setState({
+            showDialog: true
+          });
+        }}>
+          Bla
+        </DefaultButton>
+        {this.state.showDialog &&
+          <PromptDialog
+            hidden={false}
+            onCanceled={() => {
+              this.setState({
+                showDialog: false
+              })
+            }}
+            onConfirmed={() => {
+              this.setState({
+                showDialog: false
+              });
+            }}
+            content={<div>test<br /><br /><br /><br /><br />abc</div>} />
+        }
       </>
+
     );
   }
+
+  private
 }

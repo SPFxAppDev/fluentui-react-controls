@@ -55,10 +55,21 @@ export const PromptDialog: React.FunctionComponent<IPromptDialogProps> = (props:
         }}
         dialogContentProps={{
             title: props.title || '',
-            type: DialogType.normal,
-            subText: props.content
+            type: DialogType.normal
         }}
     >
+
+        {typeof props.content !== "function" &&
+            <>
+                <div>
+                    {props.content}
+                </div>
+            </>
+        }
+        {
+            typeof props.content === "function" &&
+            props.content()
+        }
 
         <TextField {...props.textFieldProps} onChange={(ev: any, newValue: string) => {
 
