@@ -1,0 +1,112 @@
+import { ArgTypes } from "@storybook/blocks";
+import { Meta, Story, Canvas } from "@storybook/addon-docs";
+import { Chip } from "./";
+import { initializeIcons } from "@fluentui/react/lib/Icons";
+
+<Meta title="Components/Chip" component={Chip} />
+
+{initializeIcons()}
+
+# Chip
+
+The `Chip` component is a small, interactive element used to represent an input, attribute, or action. It can include icons and be customized in various ways.
+
+## Arguments
+
+<ArgTypes of={Chip} />
+
+### Import
+
+```typescript
+import { Grid } from "@spfxappdev/fluentui-react-controls";
+```
+
+## Examples
+
+### Basic Chip
+
+<Canvas>
+  <Story
+    name="Basic Chip"
+    args={{
+      label: "Basic Chip",
+    }}
+  >
+    {(args) => <Chip onClick={() => alert("Chip clicked")} {...args} />}
+  </Story>
+</Canvas>
+
+### Chip with Icons
+
+<Canvas>
+  <Story
+    name="Chip with Icons"
+    args={{
+      label: "Chip with Icons",
+      prefixIcon: "Emoji2",
+      suffixIcon: "Cancel",
+    }}
+  >
+    {(args) => (
+      <Chip
+        onPrefixClick={() => alert("Prefix icon clicked")}
+        onSuffixClick={() => alert("Suffix icon clicked")}
+        onClick={() => alert("Chip clicked")}
+        {...args}
+      />
+    )}
+  </Story>
+</Canvas>
+### Colored Chip
+
+<Canvas>
+  <Story
+    name="Colored Chip"
+    args={{
+      label: "Colored Chip",
+      chipColor: "#4CAF50",
+      textColor: "#FFFFFF",
+    }}
+  >
+    {(args) => <Chip onClick={() => alert("Chip clicked")} {...args} />}
+  </Story>
+</Canvas>
+
+### Disabled Chip
+
+<Canvas>
+  <Story
+    name="Disabled Chip"
+    args={{
+      label: "Disabled Chip",
+      disabled: true,
+    }}
+  >
+    {(args) => <Chip {...args} />}
+  </Story>
+</Canvas>
+
+### Custom Style Chip
+
+<Canvas>
+  <Story
+    name="Custom Style Chip"
+    args={{
+      label: "Custom Style Chip",
+      prefixIcon: "Emoji2",
+      suffixIcon: "Cancel",
+      prefixIconStyle: {
+        color: "blue",
+        "--hover-bg": "darkblue",
+        "--hover-color": "white",
+      },
+      suffixIconStyle: {
+        color: "red",
+        "--hover-bg": "darkred",
+        "--hover-color": "white",
+      },
+    }}
+  >
+    {(args) => <Chip onClick={() => alert("Chip clicked")} {...args} />}
+  </Story>
+</Canvas>
