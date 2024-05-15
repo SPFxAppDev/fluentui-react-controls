@@ -12,12 +12,14 @@ import {
   Plugins,
   PromptDialog,
 } from "@src/controls";
-import { DefaultButton, Icon } from "@fluentui/react";
+import { DefaultButton, Icon, Spinner } from "@fluentui/react";
 import Base64Image from "@src/controls/components/base64Image/Base64Image";
-import { Grid } from "@src/controls/components/grid/Grid";
+import { Grid } from "@src/controls";
 
 interface ComponentTestState {
   showDialog: boolean;
+  lastAutocompleteVal: string;
+  lastAutocompleteResult: string;
 }
 
 export default class ComponentTest extends React.Component<
@@ -27,6 +29,8 @@ export default class ComponentTest extends React.Component<
 
   public state: ComponentTestState = {
     showDialog: false,
+    lastAutocompleteVal: '',
+    lastAutocompleteResult: ''
   }
 
   public render(): React.ReactElement<IComponentTestProps> {
@@ -74,6 +78,32 @@ export default class ComponentTest extends React.Component<
                 {item.title}
               </ListItem>
             );
+          }}
+        />
+
+        <Autocomplete
+          onLoadSuggestions={(newValue: string) => {
+            console.log("load suggestions", newValue);
+            setTimeout(() => {
+              console.log("suggestions loaded", newValue);
+              this.setState({
+                lastAutocompleteVal: newValue,
+                lastAutocompleteResult: newValue
+              });
+
+
+            }, 4000);
+
+
+          }}
+          onRenderSuggestions={(): JSX.Element => {
+            if (!this.state.lastAutocompleteVal) {
+              return <Spinner />;
+            }
+
+            return (<div>
+              Hello from result {this.state.lastAutocompleteResult}
+            </div>);
           }}
         />
         <h3>BASE64 IMAGE</h3>
@@ -174,7 +204,9 @@ export default class ComponentTest extends React.Component<
                 showDialog: false
               });
             }}
-            content={<div>test<br /><br /><br /><br /><br />abc</div>} />
+          content={(): JSX.Element => {
+            return (<div>test<br /><br /><br /><br /><br />abc2</div>);
+          }} />
         }
       </>
 

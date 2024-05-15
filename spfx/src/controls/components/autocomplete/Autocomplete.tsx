@@ -42,6 +42,8 @@ export class Autocomplete extends React.Component<IAutocompleteProps, IAutocompl
 
   private onUpdateValueText: string = "";
 
+  private lastTimeoutId: number = -1;
+
   public render(): React.ReactElement<IAutocompleteProps> {
     return (
       <>
@@ -59,7 +61,7 @@ export class Autocomplete extends React.Component<IAutocompleteProps, IAutocompl
           }}
           onFocus={(ev: any) => {
             if (this.props.showSuggestionsOnFocus) {
-              this.handleSuggestionListVisibility();
+              this.handleSuggestionListVisibility(this.state.currentValue);
             }
 
             if (isFunction(this.props.onFocus)) {
@@ -142,12 +144,28 @@ export class Autocomplete extends React.Component<IAutocompleteProps, IAutocompl
   private onValueChanged(ev: any, newValue: string): void {
     this.userIsTyping = true;
 
-    this.state.currentValue = newValue;
-    this.setState({
-      currentValue: newValue,
-    });
+    if (this.lastTimeoutId >= 0) {
+      window.clearTimeout(this.lastTimeoutId);
+    }
 
-    this.handleSuggestionListVisibility();
+    //Set userIsTyping to false after 150ms
+    this.lastTimeoutId = window.setTimeout(() => {
+      this.userIsTyping = false;
+
+      //Set a timeout of 150ms and check whether userIsTyping has been set to true again in the meantime
+      window.setTimeout(() => {
+
+        this.setState({
+          currentValue: newValue
+        }, () => {
+          if (!this.userIsTyping) {
+            this.handleSuggestionListVisibility(newValue);
+          }
+        });       
+
+      }, 100);
+
+    }, 150);
 
     if (isFunction(this.props.onChange)) {
       this.props.onChange(ev, newValue);
@@ -161,8 +179,7 @@ export class Autocomplete extends React.Component<IAutocompleteProps, IAutocompl
     }, 150);
   }
 
-  private handleSuggestionListVisibility(): void {
-    let val = this.state.currentValue;
+  private handleSuggestionListVisibility(val: string): void {
 
     if (isNullOrEmpty(val)) {
       this.hideSuggesstionsFlyout();
@@ -177,8 +194,9 @@ export class Autocomplete extends React.Component<IAutocompleteProps, IAutocompl
     let valueWasChanged = false;
 
     if (!val.Equals(this.lastValue)) {
-      this.userIsTyping = false;
+      // this.userIsTyping = false;
       valueWasChanged = true;
+      this.lastValue = val;
     }
 
     if (!valueWasChanged) {
@@ -186,17 +204,15 @@ export class Autocomplete extends React.Component<IAutocompleteProps, IAutocompl
       return;
     }
 
-    window.setTimeout(() => {
-      if (this.userIsTyping) {
-        return;
-      }
+    if (this.userIsTyping) {
+      return;
+    }
 
-      this.showSuggesstionsFlyout();
+    this.showSuggesstionsFlyout();
 
-      if (isFunction(this.props.onLoadSuggestions)) {
-        this.props.onLoadSuggestions(this.state.currentValue);
-      }
-    }, 150);
+    if (isFunction(this.props.onLoadSuggestions)) {
+      this.props.onLoadSuggestions(val);
+    }
   }
 
   private hideSuggesstionsFlyout(): void {

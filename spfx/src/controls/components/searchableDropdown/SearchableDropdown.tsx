@@ -12,6 +12,7 @@ import {
 export interface ISearchableDropDownProps extends IDropdownProps {
   onSearchValueChanged(searchValue: string): void;
   searchboxProps?: Omit<ISearchBoxProps, "onChange" | "onClear" | "onSearch">;
+  options: IDropdownOption[];
 }
 
 interface ISearchableDropDownState {}
