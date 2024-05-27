@@ -6,6 +6,7 @@ import {
   AddNewToolbox,
   AlertDialog,
   Autocomplete,
+  Chip,
   ConfirmDialog,
   IAddNewToolboxItem,
   ListItem,
@@ -193,6 +194,18 @@ export default class ComponentTest extends React.Component<
         >
           Bla
         </DefaultButton>
+        <Chip
+          label="Test"
+          onClick={() => {
+            alert("hey");
+          }}
+          prefixIcon="Emoji2"
+          suffixIcon="Cancel"
+          // disabled
+          // onPrefixClick={() => {
+          //   alert("prefix clicked");
+          // }}
+        />
         {this.state.showDialog && (
           <PromptDialog
             hidden={false}

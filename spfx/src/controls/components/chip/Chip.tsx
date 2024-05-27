@@ -45,16 +45,24 @@ export const Chip: React.FunctionComponent<IChipProps> = ({
   suffixIconClassName = "",
 }) => {
   // Set CSS variables for hover state only if not disabled
-  const conditionalIconStyles = (
-    iconStyle: IIconCSSProperties
-  ): IIconCSSProperties => ({
-    "--hover-bg": disabled ? undefined : iconStyle["--hover-bg"] || "gray",
-    "--hover-color": disabled
-      ? undefined
-      : iconStyle["--hover-color"] || "#fff",
-    cursor: disabled ? "default" : "pointer",
-    ...iconStyle,
-  });
+  const getIconStyles = (
+    iconStyle: IIconCSSProperties,
+    iconType: "prefix" | "suffix"
+  ): IIconCSSProperties => {
+    const isClickable = iconType === "suffix" ? onSuffixClick : onPrefixClick;
+    return {
+      "--hover-bg":
+        isClickable && !disabled
+          ? iconStyle["--hover-bg"] || "gray"
+          : undefined,
+      "--hover-color":
+        isClickable && !disabled
+          ? iconStyle["--hover-color"] || "#fff"
+          : undefined,
+      cursor: (isClickable || onClick) && !disabled ? "pointer" : "default",
+      ...iconStyle,
+    };
+  };
 
   return (
     <div
@@ -63,7 +71,7 @@ export const Chip: React.FunctionComponent<IChipProps> = ({
       style={{
         backgroundColor: chipColor,
         color: textColor,
-        cursor: disabled ? "default" : "pointer",
+        cursor: !onClick || disabled ? "default" : "pointer",
         ...style,
       }}
     >
@@ -72,7 +80,7 @@ export const Chip: React.FunctionComponent<IChipProps> = ({
           iconName={prefixIcon}
           className={`${styles.icon} ${styles.prefixIcon} ${prefixIconClassName}`}
           onClick={disabled ? undefined : onPrefixClick}
-          style={conditionalIconStyles(prefixIconStyle)}
+          style={getIconStyles(prefixIconStyle, "prefix")}
         />
       )}
       <span className={styles.label} style={{ ...labelStyle }}>
@@ -83,7 +91,7 @@ export const Chip: React.FunctionComponent<IChipProps> = ({
           iconName={suffixIcon}
           className={`${styles.icon} ${styles.suffixIcon} ${suffixIconClassName}`}
           onClick={disabled ? undefined : onSuffixClick}
-          style={conditionalIconStyles(suffixIconStyle)}
+          style={getIconStyles(suffixIconStyle, "suffix")}
         />
       )}
     </div>
