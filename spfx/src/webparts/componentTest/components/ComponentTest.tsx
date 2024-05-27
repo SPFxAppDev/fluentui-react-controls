@@ -6,6 +6,7 @@ import {
   AddNewToolbox,
   AlertDialog,
   Autocomplete,
+  Chip,
   ConfirmDialog,
   IAddNewToolboxItem,
   ListItem,
@@ -26,12 +27,11 @@ export default class ComponentTest extends React.Component<
   IComponentTestProps,
   ComponentTestState
 > {
-
   public state: ComponentTestState = {
     showDialog: false,
-    lastAutocompleteVal: '',
-    lastAutocompleteResult: ''
-  }
+    lastAutocompleteVal: "",
+    lastAutocompleteResult: "",
+  };
 
   public render(): React.ReactElement<IComponentTestProps> {
     return (
@@ -80,7 +80,6 @@ export default class ComponentTest extends React.Component<
             );
           }}
         />
-
         <Autocomplete
           onLoadSuggestions={(newValue: string) => {
             console.log("load suggestions", newValue);
@@ -88,22 +87,18 @@ export default class ComponentTest extends React.Component<
               console.log("suggestions loaded", newValue);
               this.setState({
                 lastAutocompleteVal: newValue,
-                lastAutocompleteResult: newValue
+                lastAutocompleteResult: newValue,
               });
-
-
             }, 4000);
-
-
           }}
           onRenderSuggestions={(): JSX.Element => {
             if (!this.state.lastAutocompleteVal) {
               return <Spinner />;
             }
 
-            return (<div>
-              Hello from result {this.state.lastAutocompleteResult}
-            </div>);
+            return (
+              <div>Hello from result {this.state.lastAutocompleteResult}</div>
+            );
           }}
         />
         <h3>BASE64 IMAGE</h3>
@@ -177,41 +172,71 @@ export default class ComponentTest extends React.Component<
                 Wide Range Item
               </div>
             </Grid>
-            <Grid item xs={6} sm={8} md={9} lg={10} xl={11}>
-              <div style={{ backgroundColor: "#ffccff", padding: "10px" }}>
-                Large Item
-              </div>
+            <Grid
+              item
+              xs={6}
+              sm={8}
+              md={9}
+              lg={10}
+              xl={11}
+              style={{ backgroundColor: "yellow" }}
+            >
+              <div style={{ padding: "10px" }}>Large Item</div>
             </Grid>
           </Grid>
         </div>
-        <DefaultButton onClick={() => {
-          this.setState({
-            showDialog: true
-          });
-        }}>
+        <DefaultButton
+          onClick={() => {
+            this.setState({
+              showDialog: true,
+            });
+          }}
+        >
           Bla
         </DefaultButton>
-        {this.state.showDialog &&
+        <Chip
+          label="Test"
+          onClick={() => {
+            alert("hey");
+          }}
+          prefixIcon="Emoji2"
+          suffixIcon="Cancel"
+          // disabled
+          // onPrefixClick={() => {
+          //   alert("prefix clicked");
+          // }}
+        />
+        {this.state.showDialog && (
           <PromptDialog
             hidden={false}
             onCanceled={() => {
               this.setState({
-                showDialog: false
-              })
+                showDialog: false,
+              });
             }}
             onConfirmed={() => {
               this.setState({
-                showDialog: false
+                showDialog: false,
               });
             }}
-          content={(): JSX.Element => {
-            return (<div>test<br /><br /><br /><br /><br />abc2</div>);
-          }} />
-        }
+            content={(): JSX.Element => {
+              return (
+                <div>
+                  test
+                  <br />
+                  <br />
+                  <br />
+                  <br />
+                  <br />
+                  abc2
+                </div>
+              );
+            }}
+          />
+        )}
       </>
-
     );
   }
 
-  private
+  private;
 }

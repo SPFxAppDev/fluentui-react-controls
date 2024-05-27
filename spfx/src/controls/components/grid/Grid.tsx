@@ -12,11 +12,23 @@ interface IGridProps {
   spacing?: number;
   className?: string;
   children?: React.ReactNode;
+  style?: React.CSSProperties;
 }
 
 export const Grid: React.FunctionComponent<IGridProps> = (props) => {
-  const { container, item, xs, sm, md, lg, xl, spacing, className, children } =
-    props;
+  const {
+    container,
+    item,
+    xs,
+    sm,
+    md,
+    lg,
+    xl,
+    spacing,
+    className,
+    children,
+    style,
+  } = props;
 
   const classList = [styles.customGrid];
 
@@ -40,5 +52,9 @@ export const Grid: React.FunctionComponent<IGridProps> = (props) => {
     if (xl) classList.push(styles[`xl-${xl}`]);
   }
 
-  return <div className={classList.join(" ")}>{children}</div>;
+  return (
+    <div className={classList.join(" ")} style={style}>
+      {children}
+    </div>
+  );
 };
