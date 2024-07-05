@@ -1,0 +1,51 @@
+.chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 5px 10px;
+  border-radius: 16px;
+  background-color: var(--chip-bg, #e0e0e0);
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 0.3s;
+
+  &:hover {
+    background-color: #d5d5d5;
+  }
+}
+
+.icon {
+  color: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px; // Specifies the width of the icon container
+  height: 24px; // Specifies the height of the icon container
+  border-radius: 50%; // Makes the container circular
+}
+
+.prefixIcon,
+.suffixIcon {
+  &:hover {
+    background-color: var(
+      --hover-bg
+    ); // Uses CSS variable for hover background color
+    color: var(--hover-color); // Uses CSS variable for hover text color
+  }
+}
+
+.prefixIcon {
+  margin-right: 2px;
+  --hover-bg: var(--prefix-hover-bg);
+  --hover-color: var(--prefix-hover-color);
+}
+
+.suffixIcon {
+  margin-left: 2px;
+  --hover-bg: var(--suffix-hover-bg);
+  --hover-color: var(--suffix-hover-color);
+}
+
+.label {
+  color: inherit;
+  margin: 0 4px; // Adjusted margin for better spacing when icons are present
+}

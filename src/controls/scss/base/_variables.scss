@@ -1,0 +1,49 @@
+@import 'spvariables';
+
+$is-spfx: false !default;
+
+@if $is-spfx {
+  @include sharepoint-variables;
+}
+
+$themePrimary: #0078d7 !default;
+$themeSecondary: #2b88d8 !default;
+$themeTertiary: #d83b01 !default;
+$themeDarkAlt: #005a9e !default;
+$themeDark: #004578 !default;
+$themeDarker: #003366 !default;
+$neutralLighterAlt: #f8f8f8 !default;
+$neutralLighter: #f4f4f4 !default;
+$neutralLight: #eaeaea !default;
+$neutralQuaternaryAlt: #d0d0d0 !default;
+$neutralQuaternary: #c8c8c8 !default;
+$neutralTertiaryAlt: #b6b6b6 !default;
+$neutralTertiary: #a6a6a6 !default;
+$neutralSecondary: #666666 !default;
+$neutralPrimaryAlt: #333333 !default;
+$neutralPrimary: #000000 !default;
+$neutralDark: #151515 !default;
+$black: #000000 !default;
+$white: #ffffff !default;
+
+:root {
+  --spfui-themePrimary: #{$themePrimary};
+  --spfui-themeSecondary: #{$themeSecondary};
+  --spfui-themeTertiary: #{$themeTertiary};
+  --spfui-themeDarkAlt: #{$themeDarkAlt};
+  --spfui-themeDark: #{$themeDark};
+  --spfui-themeDarker: #{$themeDarker};
+  --spfui-neutralLighterAlt: #{$neutralLighterAlt};
+  --spfui-neutralLighter: #{$neutralLighter};
+  --spfui-neutralLight: #{$neutralLight};
+  --spfui-neutralQuaternaryAlt: #{$neutralQuaternaryAlt};
+  --spfui-neutralQuaternary: #{$neutralQuaternary};
+  --spfui-neutralTertiaryAlt: #{$neutralTertiaryAlt};
+  --spfui-neutralTertiary: #{$neutralTertiary};
+  --spfui-neutralSecondary: #{$neutralSecondary};
+  --spfui-neutralPrimaryAlt: #{$neutralPrimaryAlt};
+  --spfui-neutralPrimary: #{$neutralPrimary};
+  --spfui-neutralDark: #{$neutralDark};
+  --spfui-black: #{$black};
+  --spfui-white: #{$white};
+}

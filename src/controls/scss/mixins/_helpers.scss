@@ -1,0 +1,9 @@
+@mixin var-fallback($property, $variable, $fallback, $prefix: null) {
+  @if $prefix {
+    #{$property}: #{$prefix} $fallback;
+    #{$property}: #{$prefix} var(#{$variable}, $fallback);
+  } @else {
+    #{$property}: $fallback;
+    #{$property}: var(#{$variable}, $fallback);
+  }
+}

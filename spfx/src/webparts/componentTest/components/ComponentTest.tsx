@@ -12,6 +12,7 @@ import {
   ListItem,
   Plugins,
   PromptDialog,
+  IconPicker
 } from "@src/controls";
 import { DefaultButton, Icon, Spinner } from "@fluentui/react";
 import Base64Image from "@src/controls/components/base64Image/Base64Image";
@@ -35,7 +36,7 @@ export default class ComponentTest extends React.Component<
 
   public render(): React.ReactElement<IComponentTestProps> {
     return (
-      <>
+      <div className={styles.componentTest}>
         <AddNewToolbox
           onItemClick={(item) => {
             Plugins.AlertDialog.open({
@@ -100,7 +101,12 @@ export default class ComponentTest extends React.Component<
               <div>Hello from result {this.state.lastAutocompleteResult}</div>
             );
           }}
+          flyoutClassName={styles["flyout"]}
         />
+        <h3>Icon Picker</h3>
+        <IconPicker onIconChanged={(iconName: string) => {
+          console.log("SSC iconName", iconName);
+        }} />
         <h3>BASE64 IMAGE</h3>
         <Base64Image
           base64String=""
@@ -234,7 +240,7 @@ export default class ComponentTest extends React.Component<
             }}
           />
         )}
-      </>
+      </div>
     );
   }
 

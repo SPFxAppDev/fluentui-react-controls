@@ -1,0 +1,55 @@
+@mixin positioning {
+  .float-left {
+    float: left;
+  }
+
+  .float-right {
+    float: right;
+  }
+
+  .relative {
+    &-position {
+      position: relative;
+    }
+  }
+
+  .absolute {
+    &-position {
+      position: absolute;
+    }
+
+    &-top {
+      top: 0;
+      left: 0;
+      right: 0;
+      position: absolute;
+    }
+
+    &-bottom {
+      bottom: 0;
+      left: 0;
+      right: 0;
+      position: absolute;
+    }
+  }
+
+  .fixed {
+    &-position {
+      position: fixed;
+    }
+  }
+
+  .text {
+    &-left {
+      text-align: left;
+    }
+
+    &-right {
+      text-align: right;
+    }
+
+    &-center {
+      text-align: center;
+    }
+  }
+}

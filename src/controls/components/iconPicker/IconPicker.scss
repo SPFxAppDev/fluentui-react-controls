@@ -1,0 +1,23 @@
+.iconpicker {
+  display: block;
+}
+
+.suggestion {
+  display: block;
+
+  &-flyout {
+    max-height: 300px;
+    overflow-y: auto;
+  }
+
+  &-item {
+    i {
+      padding-right: 20px;
+      font-size: 2em;
+    }
+
+    span {
+      font-size: 1em;
+    }
+  }
+}

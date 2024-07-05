@@ -4,8 +4,13 @@
   display: block;
 }
 
-.suggesstion {
+.suggestion {
   display: block;
+
+  &-flyout {
+    max-height: 300px;
+    overflow-y: auto;
+  }
 
   &-item {
     i {

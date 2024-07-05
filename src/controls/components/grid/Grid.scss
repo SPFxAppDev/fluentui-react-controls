@@ -1,0 +1,75 @@
+$breakpoints: (
+  xs: 0,
+  sm: 600px,
+  md: 960px,
+  lg: 1280px,
+  xl: 1920px,
+);
+
+@mixin respond-to($breakpoint) {
+  @media (min-width: map-get($breakpoints, $breakpoint)) {
+    @content;
+  }
+}
+
+.customGrid {
+  width: 100%;
+
+  &.container {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-gap: 16px; // Default spacing
+  }
+
+  // Dynamic spacing
+  @for $i from 0 through 10 {
+    &.spacing-#{$i} {
+      grid-gap: $i * 8px;
+    }
+  }
+
+  &.item {
+    grid-column-end: span 12; // Default for xs
+
+    @each $break, $size in $breakpoints {
+      @include respond-to($break) {
+        &.#{$break}-1 {
+          grid-column: span 1;
+        }
+        &.#{$break}-2 {
+          grid-column: span 2;
+        }
+        &.#{$break}-3 {
+          grid-column: span 3;
+        }
+        &.#{$break}-4 {
+          grid-column: span 4;
+        }
+        &.#{$break}-5 {
+          grid-column: span 5;
+        }
+        &.#{$break}-6 {
+          grid-column: span 6;
+        }
+        &.#{$break}-7 {
+          grid-column: span 7;
+        }
+        &.#{$break}-8 {
+          grid-column: span 8;
+        }
+        &.#{$break}-9 {
+          grid-column: span 9;
+        }
+        &.#{$break}-10 {
+          grid-column: span 10;
+        }
+        &.#{$break}-11 {
+          grid-column: span 11;
+        }
+        &.#{$break}-12 {
+          grid-column: span 12;
+        }
+      }
+    }
+  }
+}

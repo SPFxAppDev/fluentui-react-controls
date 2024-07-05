@@ -1,0 +1,18 @@
+@import '../../scss/base/variables';
+@import '../../scss/mixins/flex';
+@import '../../scss/mixins/helpers';
+
+@include flex-classes;
+
+.badge {
+  @include var-fallback(background-color, --spfui-themePrimary, $themePrimary);
+  display: inline-flex;
+  // color: $white;
+  @include var-fallback(color, --spfui-white, $white);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 12px;
+  line-height: 12px;
+  min-height: 12px;
+  font-weight: 400;
+}

@@ -15,6 +15,7 @@ import { spfi, SPFx } from '@pnp/sp';
 import '@pnp/sp/webs';
 import '@pnp/sp/lists';
 import '@pnp/sp/items';
+import styles from "./components/ComponentTest.module.scss";
 import { IRenderListDataParameters } from '@pnp/sp/lists';
 import { IUrlParameter, Uri } from '@spfxappdev/utility';
 

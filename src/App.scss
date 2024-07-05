@@ -1,0 +1,37 @@
+// $themePrimary: red !default;
+$is-spfx: false !default;
+
+@import './controls/scss/main.scss';
+// @import './styles/test.scss' layer(t2);
+
+.App {
+  text-align: center;
+}
+
+:root {
+  // --spfui-themePrimary: yellow;
+  // --spfui-neutralTertiary: red;
+  // --is-spfx: false;
+}
+
+// @layer apptest {
+//   .App {
+//     .flex,
+//     .flex-row,
+//     .flex-column {
+//       display: inline;
+//     }
+//   }
+// }
+
+.flyout {
+  max-height: 100px;
+  overflow: scroll;
+  padding: 20px;
+
+  & > div {
+    height: 250px;
+  }
+}
+
+@layer spfxappdev, apptest, base;

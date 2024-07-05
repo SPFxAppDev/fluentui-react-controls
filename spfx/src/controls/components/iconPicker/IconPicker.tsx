@@ -18,7 +18,7 @@ interface IIconPickerState {
 
 export class IconPicker extends React.Component<IIconPickerProps, IIconPickerState> {
     public state: IIconPickerState = {
-        currentValue: isNullOrEmpty(this.props.defaultValue) ? "" : this.props.defaultValue,
+        currentValue: this.props.value || this.props.defaultValue || '',
     };
 
     public static defaultProps: IIconPickerProps = {
@@ -28,50 +28,35 @@ export class IconPicker extends React.Component<IIconPickerProps, IIconPickerSta
         minValueLength: 0,
     };
 
-    private inputValueOnClick: string = "";
-
-    private textFieldReference: ITextField = null;
-
-    private textFieldDomElement: HTMLInputElement = null;
-
-    private autocompleteRef: Autocomplete = null;
-
     public render(): React.ReactElement<IIconPickerProps> {
         return (
             <>
                 <Autocomplete
                     {...this.props}
-                    textFieldRef={(fluentUITextField: ITextField, autocompleteComponent: Autocomplete, htmlInput: HTMLInputElement) => {
-                        this.textFieldReference = fluentUITextField;
-                        this.textFieldDomElement = htmlInput;
-                        this.autocompleteRef = autocompleteComponent;
-                        if (isFunction(this.props.textFieldRef)) {
-                            this.props.textFieldRef(fluentUITextField, autocompleteComponent, this.textFieldDomElement);
-                        }
-                    }}
                     onChange={(ev: any, name: string) => {
-                        if (isFunction(this.props.onIconChanged)) {
-                            this.props.onIconChanged(name);
-                        }
-                    }}
-                    onUpdated={(name: string) => {
+                        this.setState({
+                            currentValue: name
+                        });
+
                         if (isFunction(this.props.onIconChanged)) {
                             this.props.onIconChanged(name);
                         }
                     }}
                     className={cssClasses(styles.iconpicker)}
-                    defaultValue={this.state.currentValue}
+                    value={this.state.currentValue}
                     onLoadSuggestions={(newValue: string) => {
                         this.setState({
                             currentValue: newValue,
                         });
                     }}
+                    dismissOnClickInside={true}
                     onRenderSuggestions={() => {
                         return this.renderSuggesstionsFlyout();
                     }}
                     iconProps={{
                         iconName: this.state.currentValue,
                     }}
+                    flyoutClassName={styles["suggestion-flyout"]}
                 />
             </>
         );
@@ -79,7 +64,7 @@ export class IconPicker extends React.Component<IIconPickerProps, IIconPickerSta
 
     private renderSuggesstionsFlyout(): JSX.Element {
         return (
-            <List className={styles["suggesstion"]} separator={true}>
+            <List className={styles["suggestion"]} separator={true}>
                 {allIcons
                     .Where((icon) => icon.StartsWith(this.state.currentValue))
                     .map((iconName: string): JSX.Element => {
@@ -88,15 +73,15 @@ export class IconPicker extends React.Component<IIconPickerProps, IIconPickerSta
                                 clickable={true}
                                 key={`Icon_${iconName}`}
                                 onClick={() => {
-                                    this.inputValueOnClick = iconName;
-
                                     this.setState({
                                         currentValue: iconName,
                                     });
 
-                                    this.autocompleteRef.updateValue(iconName);
+                                    if (isFunction(this.props.onIconChanged)) {
+                                        this.props.onIconChanged(iconName);
+                                    }
                                 }}
-                                className={styles["suggesstion-item"]}
+                                className={styles["suggestion-item"]}
                             >
                                 <Icon iconName={iconName} />
                                 <span>{iconName}</span>

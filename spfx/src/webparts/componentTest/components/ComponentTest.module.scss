@@ -1,3 +1,9 @@
+
+:root {
+  --is-spfx: 1; /* 1 für true, 0 für false */
+}
+
+@import '../../../controls/scss/common';
 @import '~@fluentui/react/dist/sass/References.scss';
 
 .componentTest {
@@ -7,6 +13,13 @@
   color: var(--bodyText);
   &.teams {
     font-family: $ms-font-family-fallbacks;
+  }
+
+  @if $is-spfx {
+    background: $themePrimary;
+  }
+  @else {
+    background: $themePrimary;
   }
 }
 
@@ -30,5 +43,15 @@
       color: "[theme:linkHovered, default: #014446]";
       color: var(--linkHovered); // note: CSS Custom Properties support is limited to modern browsers only
     }
+  }
+}
+
+.flyout {
+  max-height: 100px;
+  overflow: scroll;
+  padding: 20px;
+
+  & > div {
+    height: 250px;
   }
 }

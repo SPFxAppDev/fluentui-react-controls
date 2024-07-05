@@ -1,0 +1,19 @@
+@import '../../scss/base/variables';
+@import '../../scss/mixins/helpers';
+
+.inline-color-picker {
+  padding: 5px;
+  @include var-fallback(background-color, --spfui-white, $white);
+  border-radius: 1px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 0px 1px;
+  display: inline-block;
+  @include var-fallback(background-color, --spfui-neutralTertiary, $neutralTertiary, '1px solid');
+  // border: 1px solid #a6a6a6;
+  cursor: pointer;
+
+  &-inner {
+    width: 36px;
+    height: 14px;
+    border-radius: 2px;
+  }
+}
