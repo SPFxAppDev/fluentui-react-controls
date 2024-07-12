@@ -1,0 +1,21 @@
+:root {
+  --spfui-themePrimary: #0078d7;
+  --spfui-themeSecondary: #2b88d8;
+  --spfui-themeTertiary: #d83b01;
+  --spfui-themeDarkAlt: #005a9e;
+  --spfui-themeDark: #004578;
+  --spfui-themeDarker: #003366;
+  --spfui-neutralLighterAlt: #f8f8f8;
+  --spfui-neutralLighter: #f4f4f4;
+  --spfui-neutralLight: #eaeaea;
+  --spfui-neutralQuaternaryAlt: #d0d0d0;
+  --spfui-neutralQuaternary: #c8c8c8;
+  --spfui-neutralTertiaryAlt: #b6b6b6;
+  --spfui-neutralTertiary: #a6a6a6;
+  --spfui-neutralSecondary: #666666;
+  --spfui-neutralPrimaryAlt: #333333;
+  --spfui-neutralPrimary: #000000;
+  --spfui-neutralDark: #151515;
+  --spfui-black: #000000;
+  --spfui-white: #ffffff;
+}

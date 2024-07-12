@@ -1,6 +1,5 @@
 import * as React from "react";
 import { Icon } from "@fluentui/react/lib/Icon";
-import "./Chip.scss";
 
 interface IChipProps {
   label: string;

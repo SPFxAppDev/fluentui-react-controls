@@ -1,9 +1,3 @@
-@import '../../scss/base/variables';
-@import '../../scss/mixins/flex';
-@import '../../scss/mixins/helpers';
-
-@include flex-classes;
-
 .badge {
   @include var-fallback(background-color, --spfui-themePrimary, $themePrimary);
   display: inline-flex;

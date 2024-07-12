@@ -1,6 +1,5 @@
 //ITreeViewProps
 import * as React from 'react';
-import './TreeView.scss';
 import { css, Icon } from '@fluentui/react';
 import { ITreeItem } from './';
 

@@ -1,5 +1,4 @@
 import * as React from 'react';
-import './Base64Image.scss';
 import { cssClasses, isNullOrEmpty } from '@spfxappdev/utility';
 import { IconButton, Label, MessageBar } from '@fluentui/react';
 

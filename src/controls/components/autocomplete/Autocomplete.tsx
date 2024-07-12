@@ -11,7 +11,7 @@ import {
   isFunction,
   randomString,
 } from "@spfxappdev/utility";
-import "./Autocomplete.scss";
+
 
 
 export interface IAutocompleteProps

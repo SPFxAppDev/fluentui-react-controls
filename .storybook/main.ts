@@ -28,9 +28,9 @@ const config: StorybookConfig = {
   docs: {
     autodocs: 'tag',
   },
-  managerHead: (head) => `
-    ${head}
-    <title>@spfxappdev/fluentui-react-controls</title>
-  `,
+  // managerHead: (head) => `
+  //   ${head}
+  //   <title>@spfxappdev/fluentui-react-controls</title>
+  // `,
 };
 export default config;

@@ -1,8 +1,4 @@
-@import '../../scss/mixins/flex';
-@import '../../scss/base/variables';
-@import '../../scss/mixins/helpers';
 
-@include flex-all;
 
 .loading {
   @include var-fallback(color, --spfui-black, $black);

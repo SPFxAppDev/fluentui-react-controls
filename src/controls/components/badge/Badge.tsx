@@ -1,5 +1,4 @@
 import * as React from "react";
-import "./Badge.scss";
 import { cssClasses } from '@spfxappdev/utility';
 
 export interface IBadgeProps extends React.HTMLAttributes<HTMLDivElement> { }

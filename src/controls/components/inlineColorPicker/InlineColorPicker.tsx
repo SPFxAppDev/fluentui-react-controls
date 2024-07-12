@@ -1,6 +1,5 @@
 import * as React from "react";
 import { ColorPicker, IColorPickerProps, getColorFromString, IColor, Callout, Label } from "@fluentui/react";
-import "./InlineColorPicker.scss";
 import { isset, isNullOrEmpty, isFunction } from "@spfxappdev/utility";
 
 export interface IInlineColorPickerProps extends Omit<IColorPickerProps, "color"> {

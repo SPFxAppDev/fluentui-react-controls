@@ -1,5 +1,4 @@
 import * as React from "react";
-import "./Grid.scss";
 
 interface IGridProps {
   container?: boolean;

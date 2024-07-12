@@ -1,0 +1,7 @@
+@import '../../scss/base/variables';
+@import '../../scss/mixins/positioning';
+@import '../../scss/mixins/helpers';
+
+@include positioning;
+
+@import './Card.scss';

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import './AddNewToolbox.scss';
+// import './AddNewToolbox.scss';
 import { cssClasses, isFunction, isNullOrEmpty } from '@spfxappdev/utility';
 import { Callout, Icon, TooltipHost, DirectionalHint, ActionButton } from '@fluentui/react';
 import { initializeIcons } from '@fluentui/react/lib/Icons';

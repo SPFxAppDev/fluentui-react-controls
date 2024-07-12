@@ -1,6 +1,5 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
-import "./Loading.scss";
 import { cssClasses, isNullOrEmpty } from '@spfxappdev/utility';
 import { Spinner, ISpinnerProps } from "@fluentui/react";
 

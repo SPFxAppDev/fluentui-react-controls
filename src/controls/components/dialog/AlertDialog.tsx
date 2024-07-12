@@ -1,5 +1,4 @@
 import * as React from "react";
-import "./Dialog.scss";
 import { cssClasses, isFunction } from '@spfxappdev/utility';
 import { PrimaryButton, Dialog, DialogType, DialogFooter } from '@fluentui/react';
 import { IBaseDialogProperties } from './';

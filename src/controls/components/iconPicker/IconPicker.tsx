@@ -1,5 +1,4 @@
 import * as React from "react";
-import "./IconPicker.scss";
 import { Icon } from "@fluentui/react";
 import { allIcons } from "./availableIcons";
 import { cssClasses, isFunction } from "@spfxappdev/utility";

@@ -1,8 +1,24 @@
-@import 'base/variables';
 @import 'mixins/all';
 
 @layer spfxappdev {
+  @import 'base/variables';
+
   @include flex-all;
   @include positioning;
+
+  @import '../components/addNewToolbox/AddNewToolbox';
+  @import '../components/autocomplete/Autocomplete';
+  @import '../components/badge/Badge';
+  @import '../components/base64Image/Base64Image';
+  @import '../components/card/Card';
+  @import '../components/chip/Chip';
+  @import '../components/dialog/Dialog';
+  @import '../components/grid/Grid';
+  @import '../components/iconPicker/IconPicker';
+  @import '../components/inlineColorPicker/InlineColorPicker';
+  @import '../components/list/List';
+  @import '../components/loading/Loading';
+  // @import '../components/searchableDropdown/SearchableDropdown';
+  @import '../components/treeview/TreeView';
 }
 

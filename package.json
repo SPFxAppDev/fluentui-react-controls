@@ -1,6 +1,6 @@
 {
   "name": "@spfxappdev/fluentui-react-controls",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "description": "",
   "main": "spfx/lib/controls/index.js",
   "types": "spfx/lib/controls/index.d.ts",
@@ -8,11 +8,14 @@
     "spfx/lib/controls"
   ],
   "scripts": {
+    "prebuild": "rimraf ./lib",
     "build": "tsc && npm run copy-css",
-    "copy-css": "node build-scss.js",
+    "copy-css": "node scripts/build-scss.js",
     "prepublish": "tsc",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "prebuild-storybook": "npm run build",
+    "build-storybook": "storybook build",
+    "postbuild-storybook": "node scripts/post-storybookbuild.js"
   },
   "repository": {
     "type": "git",

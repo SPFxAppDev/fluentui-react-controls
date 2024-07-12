@@ -1,0 +1,6 @@
+@import '../../scss/base/variables';
+@import '../../scss/mixins/flex';
+@import '../../scss/mixins/helpers';
+
+@include flex-classes;
+@import './Badge';

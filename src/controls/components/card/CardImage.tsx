@@ -1,5 +1,4 @@
 import * as React from "react";
-import "./Card.scss";
 import { cssClasses } from "@spfxappdev/utility";
 
 export interface ICardImageProps {

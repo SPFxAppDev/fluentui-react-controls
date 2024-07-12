@@ -4,7 +4,7 @@ name: Publish static Storybook to GitHub Pages
 on:
   # Runs on pushes targeting the default branch
   push:
-    branches: ["master"]
+    branches: ["newversion"]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -31,6 +31,17 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v4.0.3
+        with:
+          node-version: '18.x'
+      - name: 'Build'
+        shell: bash
+        run: |
+          echo "Install npm and run build"
+          npm install
+          npm run build-storybook
+          echo "END"
       - name: Setup Pages
         uses: actions/configure-pages@v4
       - name: Upload artifact

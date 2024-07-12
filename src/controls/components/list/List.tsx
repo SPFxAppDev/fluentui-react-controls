@@ -1,5 +1,4 @@
 import * as React from "react";
-import "./List.scss";
 import { cssClasses } from '@spfxappdev/utility';
 
 export interface IListProps extends React.HTMLAttributes<HTMLDivElement> {
