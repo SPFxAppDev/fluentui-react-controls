@@ -1,0 +1,71 @@
+@function theme-value($theme-key, $default-value) {
+  @return "'[theme: #{$theme-key}, default: #{$default-value}]'";
+}
+
+@function get-theme-value($key) {
+  @return theme-value($key, map-get($theme-values, $key));
+}
+
+$theme-values: (
+'themePrimary': '#0078d7',
+'themeSecondary': '#2b88d8',
+'themeTertiary': '#d83b01',
+'themeDarkAlt': '#005a9e',
+'themeDark': '#004578',
+'themeDarker': '#003366',
+'neutralLighterAlt': '#f8f8f8',
+'neutralLighter': '#f4f4f4',
+'neutralLight': '#eaeaea',
+'neutralQuaternaryAlt': '#d0d0d0',
+'neutralQuaternary': '#c8c8c8',
+'neutralTertiaryAlt': '#b6b6b6',
+'neutralTertiary': '#a6a6a6',
+'neutralSecondary': '#666666',
+'neutralPrimaryAlt': '#333333',
+'neutralPrimary': '#000000',
+'neutralDark': '#151515',
+'black': '#000000',
+'white': '#ffffff',
+);
+
+@mixin sharepoint-variables {
+  $is-spfx: true;
+  $themePrimary: #{get-theme-value('themePrimary')} !default !global;
+  $themeSecondary: #{get-theme-value('themeSecondary')} !default !global;
+  $themeTertiary: #{get-theme-value('themeTertiary')} !default !global;
+  $themeDarkAlt: #{get-theme-value('themeDarkAlt')} !default !global;
+  $themeDark: #{get-theme-value('themeDark')} !default !global;
+  $themeDarker: #{get-theme-value('themeDarker')} !default !global;
+  $neutralLighterAlt: #{get-theme-value('neutralLighterAlt')} !default !global;
+  $neutralLighter: #{get-theme-value('neutralLighter')} !default !global;
+  $neutralLight: #{get-theme-value('neutralLight')} !default !global;
+  $neutralQuaternaryAlt: #{get-theme-value('neutralQuaternaryAlt')} !default !global;
+  $neutralQuaternary: #{get-theme-value('neutralQuaternary')} !default !global;
+  $neutralTertiaryAlt: #{get-theme-value('neutralTertiaryAlt')} !default !global;
+  $neutralTertiary: #{get-theme-value('neutralTertiary')} !default !global;
+  $neutralSecondary: #{get-theme-value('neutralSecondary')} !default !global;
+  $neutralPrimaryAlt: #{get-theme-value('neutralPrimaryAlt')} !default !global;
+  $neutralPrimary: #{get-theme-value('neutralPrimary')} !default !global;
+  $neutralDark: #{get-theme-value('neutralDark')} !default !global;
+  $black: #{get-theme-value('black')} !default !global;
+  $white: #{get-theme-value('white')} !default !global;
+  // $themePrimary: '[theme: themePrimary, default: #0078d7]' !default !global;
+  // $themeSecondary: '[theme: themeSecondary, default: #2b88d8]' !default !global;
+  // $themeTertiary: '[theme: themeTertiary, default: #d83b01]' !default !global;
+  // $themeDarkAlt: '[theme: themeDarkAlt, default: #005a9e]' !default !global;
+  // $themeDark: '[theme: themeDark, default: #004578]' !default !global;
+  // $themeDarker: '[theme: themeDarker, default: #003366]' !default !global;
+  // $neutralLighterAlt: '[theme: neutralLighterAlt, default: #f8f8f8]' !default !global;
+  // $neutralLighter: '[theme: neutralLighter, default: #f4f4f4]' !default !global;
+  // $neutralLight: '[theme: neutralLight, default: #eaeaea]' !default !global;
+  // $neutralQuaternaryAlt: '[theme: neutralQuaternaryAlt, default: #d0d0d0]' !default !global;
+  // $neutralQuaternary: '[theme: neutralQuaternary, default: #c8c8c8]' !default !global;
+  // $neutralTertiaryAlt: '[theme: neutralTertiaryAlt, default: #b6b6b6]' !default !global;
+  // $neutralTertiary: '[theme: neutralTertiary, default: #a6a6a6]' !default !global;
+  // $neutralSecondary: '[theme: neutralSecondary, default: #666666]' !default !global;
+  // $neutralPrimaryAlt: '[theme: neutralPrimaryAlt, default: #333333]' !default !global;
+  // $neutralPrimary: '[theme: neutralPrimary, default: #000000]' !default !global;
+  // $neutralDark: '[theme: neutralDark, default: #151515]' !default !global;
+  // $black: '[theme: black, default: #000000]' !default !global;
+  // $white: '[theme: white, default: #ffffff]' !default !global;
+}

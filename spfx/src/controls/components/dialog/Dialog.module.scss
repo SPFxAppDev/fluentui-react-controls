@@ -1,9 +1,0 @@
-.dialog {
-  display: flex;
-
-  :global {
-    .ms-Dialog-header [aria-label="Close"] {
-      display: none;
-    }
-  }
-}

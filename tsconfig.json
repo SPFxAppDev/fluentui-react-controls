@@ -26,6 +26,6 @@
     "jsx": "react-jsx",
     "baseUrl": "."
   },
-  "include": ["src/controls"],
+  "include": ["src"],
   "exclude": ["node_modules", "lib", "src/stories"]
 }

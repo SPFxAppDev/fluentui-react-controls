@@ -9,8 +9,8 @@ dependencies:
     specifier: ^7.199.1
     version: 7.199.1(@types/react-dom@17.0.17)(@types/react@17.0.45)(react-dom@17.0.1)(react@17.0.1)
   '@spfxappdev/utility':
-    specifier: ^1.4.1
-    version: 1.4.1
+    specifier: ^1.5.1
+    version: 1.5.3
   react:
     specifier: 17.0.1
     version: 17.0.1
@@ -2587,8 +2587,8 @@ packages:
     resolution: {integrity: sha512-+Fj43pSMwJs4KRrH/938Uf+uAELIgVBmQzg/q1YG10djyfA3TnrU8N8XzqCh/okZdszqBQTZf96idMfE5lnwTA==}
     dev: true
 
-  /@spfxappdev/utility@1.4.1:
-    resolution: {integrity: sha512-Kv4ES33BH56kHfM55ea2c2iaqkjGNabtkef3PuPNOPBMWdR6yLflhdI24P1hEgNU/igoaF+K5sozmJOYq2zN7A==}
+  /@spfxappdev/utility@1.5.3:
+    resolution: {integrity: sha512-TkM+18obxqZBz3rsepr3ZJifA8/RUBJIHjmsMqcjgx/OyGRajLPr2u+vlhpQMieW86wOWlz0HlvHZVafk+GvCA==}
     dev: false
 
   /@storybook/addon-actions@7.6.10:

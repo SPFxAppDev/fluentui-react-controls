@@ -1,0 +1,131 @@
+
+// :root {
+//   --is-spfx: 1; /* 1 für true, 0 für false */
+// }
+// @function theme-value($theme-key, $default-value) {
+//   @return "'[theme: #{$theme-key}, default: #{$default-value}]'";
+// }
+
+
+
+// $themePrimaryTest: #000;
+// $themePrimary2: theme-value('themePrimary', '#0078d7');
+// $themeSecondary: '[theme: themeSecondary, default: #2b88d8]';
+// $is-spfx: false;
+
+// $theme-values: (
+//   'themePrimary': '#0078d7',
+//   'themeSecondary': '#2b88d8',
+//   'themeTertiary': '#71afe5'
+// );
+
+// @function get-theme-value($key) {
+//   @return theme-value($key, map-get($theme-values, $key));
+// }
+
+// @function get-theme-value2($key) {
+  
+//   @return '[theme: themePrimary, default: #0078d7]';
+// }
+
+// @function test($key) {
+  
+//   @return "'#{$key}'";
+// }
+
+// $theme-values: (
+// 'themePrimary': '#0078d7',
+// 'themeSecondary': '#2b88d8',
+// 'themeTertiary': '#d83b01',
+// 'themeDarkAlt': '#005a9e',
+// 'themeDark': '#004578',
+// 'themeDarker': '#003366',
+// 'neutralLighterAlt': '#f8f8f8',
+// 'neutralLighter': '#f4f4f4',
+// 'neutralLight': '#eaeaea',
+// 'neutralQuaternaryAlt': '#d0d0d0',
+// 'neutralQuaternary': '#c8c8c8',
+// 'neutralTertiaryAlt': '#b6b6b6',
+// 'neutralTertiary': '#a6a6a6',
+// 'neutralSecondary': '#666666',
+// 'neutralPrimaryAlt': '#333333',
+// 'neutralPrimary': '#000000',
+// 'neutralDark': '#151515',
+// 'black': '#000000',
+// 'white': '#ffffff',
+// );
+
+// @function theme-value($theme-key, $default-value) {
+//   @return "'[theme: #{$theme-key}, default: #{$default-value}]'";
+// }
+
+// @function get-theme-value($key) {
+//   @return theme-value($key, map-get($theme-values, $key));
+// }
+
+
+$is-spfx: true;
+// $themePrimary: #{get-theme-value('themePrimary')} !default; 
+
+// @mixin theme-value2() {
+//   :root {
+//     --spfui-themePrimary: #{$themePrimary};
+//     // --spfui-themeSecondary: #{get-theme-value2('themeSecondary')};
+//     // color: $themeSecondary;
+//   }
+// }
+
+
+
+// :global {
+//   @include theme-value2();
+// }
+  
+
+// @import '../../../controls/scss/common';
+@import '../../../../../../../src/scss/base/variables.scss';
+@import '~@fluentui/react/dist/sass/References.scss';
+
+.componentTest {
+  // background-color: $themePrimary;
+  overflow: hidden;
+  padding: 1em;
+  color: "[theme:bodyText, default: #323130]"; 
+  color: var(--bodyText);
+  &.teams {
+    font-family: $ms-font-family-fallbacks;
+  }
+}
+
+.welcome {
+  text-align: center;
+}
+
+.welcomeImage {
+  width: 100%;
+  max-width: 420px;
+}
+
+.links {
+  a {
+    text-decoration: none;
+    color: "[theme:link, default:#03787c]";
+    color: var(--link); // note: CSS Custom Properties support is limited to modern browsers only 
+
+    &:hover {
+      text-decoration: underline;
+      color: "[theme:linkHovered, default: #014446]";
+      color: var(--linkHovered); // note: CSS Custom Properties support is limited to modern browsers only
+    }
+  }
+}
+
+.flyout {
+  max-height: 100px;
+  overflow: scroll;
+  padding: 20px;
+
+  & > div {
+    height: 250px;
+  }
+}

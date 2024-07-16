@@ -3,7 +3,7 @@ const path = require('path');
 const fs = require('fs');
 const sass = require('sass');
 
-const srcDir = path.resolve(__dirname, '..', 'src/controls');
+const srcDir = path.resolve(__dirname, '..', 'src');
 const libDir = path.resolve(__dirname, '..', 'lib');
 
 const compileSass = (srcPath, distPath) => {
