@@ -28,44 +28,73 @@ $theme-values: (
 'white': '#ffffff',
 );
 
+@function get-var($var-name, $default-value) {
+  @if global-variable-exists($var-name) {
+    @return global-variable-get($var-name);
+  } @else {
+    @return $default-value;
+  }
+}
+
+
+$themePrimary: get-var(themePrimary, null);
+$themeSecondary: get-var(themeSecondary, null);
+$themeTertiary: get-var(themeTertiary, null);
+$themeDarkAlt: get-var(themeDarkAlt, null);
+$themeDark: get-var(themeDark, null);
+$themeDarker: get-var(themeDarker, null);
+$neutralLighterAlt: get-var(neutralLighterAlt, null);
+$neutralLighter: get-var(neutralLighter, null);
+$neutralLight: get-var(neutralLight, null);
+$neutralQuaternaryAlt: get-var(neutralQuaternaryAlt, null);
+$neutralQuaternary: get-var(neutralQuaternary, null);
+$neutralTertiaryAlt: get-var(neutralTertiaryAlt, null);
+$neutralTertiary: get-var(neutralTertiary, null);
+$neutralSecondary: get-var(neutralSecondary, null);
+$neutralPrimaryAlt: get-var(neutralPrimaryAlt, null);
+$neutralPrimary: get-var(neutralPrimary, null);
+$neutralDark: get-var(neutralDark, null);
+$black: get-var('black', null);
+$white: get-var('white', null);
+
 @mixin sharepoint-variables {
   $is-spfx: true;
-  $themePrimary: #{get-theme-value('themePrimary')} !default !global;
-  $themeSecondary: #{get-theme-value('themeSecondary')} !default !global;
-  $themeTertiary: #{get-theme-value('themeTertiary')} !default !global;
-  $themeDarkAlt: #{get-theme-value('themeDarkAlt')} !default !global;
-  $themeDark: #{get-theme-value('themeDark')} !default !global;
-  $themeDarker: #{get-theme-value('themeDarker')} !default !global;
-  $neutralLighterAlt: #{get-theme-value('neutralLighterAlt')} !default !global;
-  $neutralLighter: #{get-theme-value('neutralLighter')} !default !global;
-  $neutralLight: #{get-theme-value('neutralLight')} !default !global;
-  $neutralQuaternaryAlt: #{get-theme-value('neutralQuaternaryAlt')} !default !global;
-  $neutralQuaternary: #{get-theme-value('neutralQuaternary')} !default !global;
-  $neutralTertiaryAlt: #{get-theme-value('neutralTertiaryAlt')} !default !global;
-  $neutralTertiary: #{get-theme-value('neutralTertiary')} !default !global;
-  $neutralSecondary: #{get-theme-value('neutralSecondary')} !default !global;
-  $neutralPrimaryAlt: #{get-theme-value('neutralPrimaryAlt')} !default !global;
-  $neutralPrimary: #{get-theme-value('neutralPrimary')} !default !global;
-  $neutralDark: #{get-theme-value('neutralDark')} !default !global;
-  $black: #{get-theme-value('black')} !default !global;
-  $white: #{get-theme-value('white')} !default !global;
-  // $themePrimary: '[theme: themePrimary, default: #0078d7]' !default !global;
-  // $themeSecondary: '[theme: themeSecondary, default: #2b88d8]' !default !global;
-  // $themeTertiary: '[theme: themeTertiary, default: #d83b01]' !default !global;
-  // $themeDarkAlt: '[theme: themeDarkAlt, default: #005a9e]' !default !global;
-  // $themeDark: '[theme: themeDark, default: #004578]' !default !global;
-  // $themeDarker: '[theme: themeDarker, default: #003366]' !default !global;
-  // $neutralLighterAlt: '[theme: neutralLighterAlt, default: #f8f8f8]' !default !global;
-  // $neutralLighter: '[theme: neutralLighter, default: #f4f4f4]' !default !global;
-  // $neutralLight: '[theme: neutralLight, default: #eaeaea]' !default !global;
-  // $neutralQuaternaryAlt: '[theme: neutralQuaternaryAlt, default: #d0d0d0]' !default !global;
-  // $neutralQuaternary: '[theme: neutralQuaternary, default: #c8c8c8]' !default !global;
-  // $neutralTertiaryAlt: '[theme: neutralTertiaryAlt, default: #b6b6b6]' !default !global;
-  // $neutralTertiary: '[theme: neutralTertiary, default: #a6a6a6]' !default !global;
-  // $neutralSecondary: '[theme: neutralSecondary, default: #666666]' !default !global;
-  // $neutralPrimaryAlt: '[theme: neutralPrimaryAlt, default: #333333]' !default !global;
-  // $neutralPrimary: '[theme: neutralPrimary, default: #000000]' !default !global;
-  // $neutralDark: '[theme: neutralDark, default: #151515]' !default !global;
-  // $black: '[theme: black, default: #000000]' !default !global;
-  // $white: '[theme: white, default: #ffffff]' !default !global;
+  $themePrimary: #{get-theme-value('themePrimary')} !default;
+  $themeSecondary: #{get-theme-value('themeSecondary')} !default;
+  $themeTertiary: #{get-theme-value('themeTertiary')} !default;
+  $themeDarkAlt: #{get-theme-value('themeDarkAlt')} !default;
+  $themeDark: #{get-theme-value('themeDark')} !default;
+  $themeDarker: #{get-theme-value('themeDarker')} !default;
+  $neutralLighterAlt: #{get-theme-value('neutralLighterAlt')} !default;
+  $neutralLighter: #{get-theme-value('neutralLighter')} !default;
+  $neutralLight: #{get-theme-value('neutralLight')} !default;
+  $neutralQuaternaryAlt: #{get-theme-value('neutralQuaternaryAlt')} !default;
+  $neutralQuaternary: #{get-theme-value('neutralQuaternary')} !default;
+  $neutralTertiaryAlt: #{get-theme-value('neutralTertiaryAlt')} !default;
+  $neutralTertiary: #{get-theme-value('neutralTertiary')} !default;
+  $neutralSecondary: #{get-theme-value('neutralSecondary')} !default;
+  $neutralPrimaryAlt: #{get-theme-value('neutralPrimaryAlt')} !default;
+  $neutralPrimary: #{get-theme-value('neutralPrimary')} !default;
+  $neutralDark: #{get-theme-value('neutralDark')} !default;
+  $black: #{get-theme-value('black')} !default;
+  $white: #{get-theme-value('white')} !default;
+  // $themePrimary: #{get-theme-value('themePrimary')} !default !global;
+  // $themeSecondary: #{get-theme-value('themeSecondary')} !default !global;
+  // $themeTertiary: #{get-theme-value('themeTertiary')} !default !global;
+  // $themeDarkAlt: #{get-theme-value('themeDarkAlt')} !default !global;
+  // $themeDark: #{get-theme-value('themeDark')} !default !global;
+  // $themeDarker: #{get-theme-value('themeDarker')} !default !global;
+  // $neutralLighterAlt: #{get-theme-value('neutralLighterAlt')} !default !global;
+  // $neutralLighter: #{get-theme-value('neutralLighter')} !default !global;
+  // $neutralLight: #{get-theme-value('neutralLight')} !default !global;
+  // $neutralQuaternaryAlt: #{get-theme-value('neutralQuaternaryAlt')} !default !global;
+  // $neutralQuaternary: #{get-theme-value('neutralQuaternary')} !default !global;
+  // $neutralTertiaryAlt: #{get-theme-value('neutralTertiaryAlt')} !default !global;
+  // $neutralTertiary: #{get-theme-value('neutralTertiary')} !default !global;
+  // $neutralSecondary: #{get-theme-value('neutralSecondary')} !default !global;
+  // $neutralPrimaryAlt: #{get-theme-value('neutralPrimaryAlt')} !default !global;
+  // $neutralPrimary: #{get-theme-value('neutralPrimary')} !default !global;
+  // $neutralDark: #{get-theme-value('neutralDark')} !default !global;
+  // $black: #{get-theme-value('black')} !default !global;
+  // $white: #{get-theme-value('white')} !default !global;
 }

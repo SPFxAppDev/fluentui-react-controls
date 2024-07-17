@@ -1,6 +1,6 @@
 @import 'spvariables';
 
-$is-spfx: false !default;
+$is-spfx: true !default;
 
 @if $is-spfx {
   @include sharepoint-variables;

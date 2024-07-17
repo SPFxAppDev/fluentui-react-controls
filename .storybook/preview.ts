@@ -1,5 +1,6 @@
 import type { Preview } from "@storybook/react";
 import spfxappdevTheme from './spfxappdevTheme';
+import './storybookstyles.scss';
 
 const preview: Preview = {
   parameters: {

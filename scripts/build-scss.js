@@ -19,21 +19,27 @@ const processDirectory = (dir, subdir = '') => {
     const relPath = path.relative(srcDir, srcFile);
     const libFile = path.join(libDir, relPath);
     const isMainCss = file.endsWith('main.scss');
+    const isInScssDir = srcFile.indexOf('/scss/') >= 0 || srcFile.indexOf('\\scss\\') >= 0;
 
     if (fs.statSync(srcFile).isDirectory()) {
       fs.mkdirSync(libFile, { recursive: true });
       processDirectory(srcFile, path.join(subdir, file));
-    } else if (file.endsWith('.only.scss') || isMainCss) {
-      if (isMainCss) {
+    } else if (file.endsWith('.only.scss') || isMainCss || isInScssDir) {
+      if (isMainCss || isInScssDir) {
         // Copy .scss file
         fs.copyFileSync(srcFile, libFile);
         console.log(`Copied: ${srcFile} to ${libFile}`);
       }
 
-      const replaceTerm = isMainCss ? '.scss' : '.only.scss';
+      if (isInScssDir && !isMainCss) {
+        return;
+      }
+
+      const searchTerm = isMainCss ? '.scss' : '.only.scss';
+      const replaceTerm = '.css';
 
       // Compile to .css
-      const cssFile = libFile.replace(replaceTerm, '.css');
+      const cssFile = libFile.replace(searchTerm, replaceTerm);
       compileSass(srcFile, cssFile);
       console.log(`Compiled: ${srcFile} to ${cssFile}`);
     }
